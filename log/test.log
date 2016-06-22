@@ -1,0 +1,724 @@
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (0.2ms)[0m  DELETE FROM "displays"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "displays" ("total", "description", "created_at", "updated_at", "id") VALUES (1, 'MyText', '2016-06-17 19:49:35', '2016-06-17 19:49:35', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "displays" ("total", "description", "created_at", "updated_at", "id") VALUES (1, 'MyText', '2016-06-17 19:49:35', '2016-06-17 19:49:35', 298486374)
+  [1m[36m (2.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (0.2ms)[0m  DELETE FROM "displays"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "displays" ("total", "description", "created_at", "updated_at", "id") VALUES (1, 'MyText', '2016-06-17 19:49:36', '2016-06-17 19:49:36', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "displays" ("total", "description", "created_at", "updated_at", "id") VALUES (1, 'MyText', '2016-06-17 19:49:36', '2016-06-17 19:49:36', 298486374)
+  [1m[36m (2.3ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mDisplay Load (0.1ms)[0m  [1mSELECT "displays".* FROM "displays" WHERE "displays"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.0ms)[0m  SELECT COUNT(*) FROM "displays" 
+Processing by DisplaysController#create as HTML
+  Parameters: {"display"=>{"id"=>"980190962", "total"=>"1", "description"=>"MyText", "created_at"=>"2016-06-17 19:49:36 UTC", "updated_at"=>"2016-06-17 19:49:36 UTC"}}
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "displays" ("created_at", "description", "total", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Fri, 17 Jun 2016 19:49:36 UTC +00:00], ["description", "MyText"], ["total", 1], ["updated_at", Fri, 17 Jun 2016 19:49:36 UTC +00:00]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/displays/980190963
+Completed 302 Found in 3ms (ActiveRecord: 0.4ms)
+  [1m[35m (0.0ms)[0m  SELECT COUNT(*) FROM "displays" 
+  [1m[36m (0.3ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mDisplay Load (0.1ms)[0m  [1mSELECT "displays".* FROM "displays" WHERE "displays"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.0ms)[0m  SELECT COUNT(*) FROM "displays" 
+Processing by DisplaysController#destroy as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[36mDisplay Load (0.0ms)[0m  [1mSELECT "displays".* FROM "displays" WHERE "displays"."id" = ? LIMIT 1[0m  [["id", "980190962"]]
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mDELETE FROM "displays" WHERE "displays"."id" = ?[0m  [["id", 980190962]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/displays
+Completed 302 Found in 1ms (ActiveRecord: 0.2ms)
+  [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "displays" [0m
+  [1m[35m (0.3ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mDisplay Load (0.1ms)[0m  SELECT "displays".* FROM "displays" WHERE "displays"."id" = ? LIMIT 1  [["id", 980190962]]
+Processing by DisplaysController#edit as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[36mDisplay Load (0.0ms)[0m  [1mSELECT "displays".* FROM "displays" WHERE "displays"."id" = ? LIMIT 1[0m  [["id", "980190962"]]
+ERROR: compiling _app_views_displays__form_html_erb__98182237648422030_70343218577920 RAISED /Users/aschultz/RubymineProjects/my_app/app/views/displays/_form.html.erb:15: syntax error, unexpected ':'
+...tput_buffer.append= ( f.label : total );@output_buffer.safe_...
+...                               ^
+/Users/aschultz/RubymineProjects/my_app/app/views/displays/_form.html.erb:16: syntax error, unexpected ':'
+...ffer.append= ( f.number_field : total );@output_buffer.safe_...
+...                               ^
+Function body:           def _app_views_displays__form_html_erb__98182237648422030_70343218577920(local_assigns, output_buffer)
+            _old_virtual_path, @virtual_path = @virtual_path, "displays/_form";_old_output_buffer = @output_buffer;form = local_assigns[:form];;@output_buffer = output_buffer || ActionView::OutputBuffer.new;@output_buffer.append=  form_for(@display) do |f| @output_buffer.safe_concat('
+');   if @display.errors.any? 
+@output_buffer.safe_concat('    <div id="error_explanation">
+      <h2>');@output_buffer.append= ( pluralize(@display.errors.count, "error") );@output_buffer.safe_concat(' prohibited this display from being saved:</h2>
+
+      <ul>
+');       @display.errors.full_messages.each do |msg| 
+@output_buffer.safe_concat('        <li>');@output_buffer.append= ( msg );@output_buffer.safe_concat('</li>
+');       end 
+@output_buffer.safe_concat('      </ul>
+    </div>
+');   end 
+@output_buffer.safe_concat('
+  <div class="field">
+    ');@output_buffer.append= ( f.label : total );@output_buffer.safe_concat('<br />
+    ');@output_buffer.append= ( f.number_field : total );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('  </div>
+  <div class="field">
+    ');@output_buffer.append= ( f.label :description );@output_buffer.safe_concat('<br />
+    ');@output_buffer.append= ( f.text_area :description );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('  </div>
+  <div class="actions">
+    ');@output_buffer.append= ( f.submit );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('  </div>
+'); end 
+@output_buffer.to_s
+          ensure
+            @virtual_path, @output_buffer = _old_virtual_path, _old_output_buffer
+          end
+
+Backtrace: /Users/aschultz/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-3.2.2/lib/action_view/template.rb:285:in `module_eval'
+/Users/aschultz/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-3.2.2/lib/action_view/template.rb:285:in `compile'
+/Users/aschultz/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-3.2.2/lib/action_view/template.rb:233:in `compile!'
+/Users/aschultz/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-3.2.2/lib/action_view/template.rb:142:in `block in render'
+/Users/aschultz/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/activesupport-3.2.2/lib/active_support/notifications.rb:123:in `block in instrument'
+/Users/aschultz/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/activesupport-3.2.2/lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+/Users/aschultz/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/activesupport-3.2.2/lib/active_support/notifications.rb:123:in `instrument'
+/Users/aschultz/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-3.2.2/lib/action_view/template.rb:141:in `render'
+/Users/aschultz/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-3.2.2/lib/action_view/renderer/partial_renderer.rb:257:in `render_partial'
+/Users/aschultz/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-3.2.2/lib/action_view/renderer/partial_renderer.rb:230:in `block in render'
+/Users/aschultz/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-3.2.2/lib/action_view/renderer/abstract_renderer.rb:38:in `block in instrument'
+/Users/aschultz/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/activesupport-3.2.2/lib/active_support/notifications.rb:123:in `block in instrument'
+/Users/aschultz/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/activesupport-3.2.2/lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+/Users/aschultz/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/activesupport-3.2.2/lib/active_support/notifications.rb:123:in `instrument'
+/Users/aschultz/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-3.2.2/lib/action_view/renderer/abstract_renderer.rb:38:in `instrument'
+/Users/aschultz/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-3.2.2/lib/action_view/renderer/partial_renderer.rb:229:in `render'
+/Users/aschultz/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-3.2.2/lib/action_view/renderer/renderer.rb:41:in `render_partial'
+/Users/aschultz/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-3.2.2/lib/action_view/helpers/rendering_helper.rb:27:in `render'
+/Users/aschultz/RubymineProjects/my_app/app/views/displays/edit.html.erb:3:in `_app_views_displays_edit_html_erb___4135487406034794831_70343218532340'
+/Users/aschultz/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-3.2.2/lib/action_view/template.rb:143:in `block in render'
+/Users/aschultz/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/activesupport-3.2.2/lib/active_support/notifications.rb:123:in `block in instrument'
+/Users/aschultz/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/activesupport-3.2.2/lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+/Users/aschultz/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/activesupport-3.2.2/lib/active_support/notifications.rb:123:in `instrument'
+/Users/aschultz/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-3.2.2/lib/action_view/template.rb:141:in `render'
+/Users/aschultz/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-3.2.2/lib/action_view/renderer/template_renderer.rb:42:in `block (2 levels) in render_template'
+/Users/aschultz/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-3.2.2/lib/action_view/renderer/abstract_renderer.rb:38:in `block in instrument'
+/Users/aschultz/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/activesupport-3.2.2/lib/active_support/notifications.rb:123:in `block in instrument'
+/Users/aschultz/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/activesupport-3.2.2/lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+/Users/aschultz/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/activesupport-3.2.2/lib/active_support/notifications.rb:123:in `instrument'
+/Users/aschultz/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-3.2.2/lib/action_view/renderer/abstract_renderer.rb:38:in `instrument'
+/Users/aschultz/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-3.2.2/lib/action_view/renderer/template_renderer.rb:41:in `block in render_template'
+/Users/aschultz/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-3.2.2/lib/action_view/renderer/template_renderer.rb:49:in `render_with_layout'
+/Users/aschultz/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-3.2.2/lib/action_view/renderer/template_renderer.rb:40:in `render_template'
+/Users/aschultz/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-3.2.2/lib/action_view/renderer/template_renderer.rb:13:in `render'
+/Users/aschultz/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-3.2.2/lib/action_view/renderer/renderer.rb:36:in `render_template'
+/Users/aschultz/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-3.2.2/lib/action_view/renderer/renderer.rb:17:in `render'
+/Users/aschultz/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-3.2.2/lib/abstract_controller/rendering.rb:109:in `_render_template'
+/Users/aschultz/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-3.2.2/lib/action_controller/metal/streaming.rb:225:in `_render_template'
+/Users/aschultz/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-3.2.2/lib/abstract_controller/rendering.rb:103:in `render_to_body'
+/Users/aschultz/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-3.2.2/lib/action_controller/metal/renderers.rb:28:in `render_to_body'
+/Users/aschultz/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-3.2.2/lib/action_controller/metal/compatibility.rb:50:in `render_to_body'
+/Users/aschultz/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-3.2.2/lib/abstract_controller/rendering.rb:88:in `render'
+/Users/aschultz/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-3.2.2/lib/action_controller/metal/rendering.rb:16:in `render'
+/Users/aschultz/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-3.2.2/lib/action_controller/metal/instrumentation.rb:40:in `block (2 levels) in render'
+/Users/aschultz/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/activesupport-3.2.2/lib/active_support/core_ext/benchmark.rb:5:in `block in ms'
+/Users/aschultz/.rbenv/versions/2.1.2/lib/ruby/2.1.0/benchmark.rb:294:in `realtime'
+/Users/aschultz/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/activesupport-3.2.2/lib/active_support/core_ext/benchmark.rb:5:in `ms'
+/Users/aschultz/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-3.2.2/lib/action_controller/metal/instrumentation.rb:40:in `block in render'
+/Users/aschultz/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-3.2.2/lib/action_controller/metal/instrumentation.rb:83:in `cleanup_view_runtime'
+/Users/aschultz/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/activerecord-3.2.2/lib/active_record/railties/controller_runtime.rb:24:in `cleanup_view_runtime'
+/Users/aschultz/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-3.2.2/lib/action_controller/metal/instrumentation.rb:39:in `render'
+/Users/aschultz/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-3.2.2/lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+/Users/aschultz/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-3.2.2/lib/action_controller/metal/implicit_render.rb:5:in `send_action'
+/Users/aschultz/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-3.2.2/lib/abstract_controller/base.rb:167:in `process_action'
+/Users/aschultz/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-3.2.2/lib/action_controller/metal/rendering.rb:10:in `process_action'
+/Users/aschultz/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-3.2.2/lib/abstract_controller/callbacks.rb:18:in `block in process_action'
+/Users/aschultz/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/activesupport-3.2.2/lib/active_support/callbacks.rb:414:in `_run__1377055444556843748__process_action__3430868000555326063__callbacks'
+/Users/aschultz/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/activesupport-3.2.2/lib/active_support/callbacks.rb:405:in `__run_callback'
+/Users/aschultz/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/activesupport-3.2.2/lib/active_support/callbacks.rb:385:in `_run_process_action_callbacks'
+/Users/aschultz/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/activesupport-3.2.2/lib/active_support/callbacks.rb:81:in `run_callbacks'
+/Users/aschultz/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-3.2.2/lib/abstract_controller/callbacks.rb:17:in `process_action'
+/Users/aschultz/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-3.2.2/lib/action_controller/metal/rescue.rb:29:in `process_action'
+/Users/aschultz/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-3.2.2/lib/action_controller/metal/instrumentation.rb:30:in `block in process_action'
+/Users/aschultz/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/activesupport-3.2.2/lib/active_support/notifications.rb:123:in `block in instrument'
+/Users/aschultz/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/activesupport-3.2.2/lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+/Users/aschultz/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/activesupport-3.2.2/lib/active_support/notifications.rb:123:in `instrument'
+/Users/aschultz/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-3.2.2/lib/action_controller/metal/instrumentation.rb:29:in `process_action'
+/Users/aschultz/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-3.2.2/lib/action_controller/metal/params_wrapper.rb:205:in `process_action'
+/Users/aschultz/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/activerecord-3.2.2/lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+/Users/aschultz/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-3.2.2/lib/abstract_controller/base.rb:121:in `process'
+/Users/aschultz/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-3.2.2/lib/abstract_controller/rendering.rb:45:in `process'
+/Users/aschultz/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-3.2.2/lib/action_controller/metal/testing.rb:17:in `process_with_new_base_test'
+/Users/aschultz/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-3.2.2/lib/action_controller/test_case.rb:464:in `process'
+/Users/aschultz/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-3.2.2/lib/action_controller/test_case.rb:49:in `process'
+/Users/aschultz/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-3.2.2/lib/action_controller/test_case.rb:380:in `get'
+/Users/aschultz/RubymineProjects/my_app/test/functional/displays_controller_test.rb:33:in `block in <class:DisplaysControllerTest>'
+/Users/aschultz/.rbenv/versions/2.1.2/lib/ruby/2.1.0/test/unit.rb:869:in `run_test'
+/Users/aschultz/.rbenv/versions/2.1.2/lib/ruby/2.1.0/minitest/unit.rb:1265:in `run'
+/Users/aschultz/.rbenv/versions/2.1.2/lib/ruby/2.1.0/test/unit/testcase.rb:17:in `run'
+/Users/aschultz/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/activesupport-3.2.2/lib/active_support/testing/setup_and_teardown.rb:35:in `block in run'
+/Users/aschultz/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/activesupport-3.2.2/lib/active_support/callbacks.rb:469:in `_run__1672810058022972351__setup__731525998438982421__callbacks'
+/Users/aschultz/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/activesupport-3.2.2/lib/active_support/callbacks.rb:405:in `__run_callback'
+/Users/aschultz/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/activesupport-3.2.2/lib/active_support/callbacks.rb:385:in `_run_setup_callbacks'
+/Users/aschultz/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/activesupport-3.2.2/lib/active_support/callbacks.rb:81:in `run_callbacks'
+/Users/aschultz/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/activesupport-3.2.2/lib/active_support/testing/setup_and_teardown.rb:34:in `run'
+/Users/aschultz/.rbenv/versions/2.1.2/lib/ruby/2.1.0/minitest/unit.rb:940:in `block in _run_suite'
+/Users/aschultz/.rbenv/versions/2.1.2/lib/ruby/2.1.0/minitest/unit.rb:933:in `map'
+/Users/aschultz/.rbenv/versions/2.1.2/lib/ruby/2.1.0/minitest/unit.rb:933:in `_run_suite'
+/Users/aschultz/.rbenv/versions/2.1.2/lib/ruby/2.1.0/test/unit.rb:663:in `block in _run_suites'
+/Users/aschultz/.rbenv/versions/2.1.2/lib/ruby/2.1.0/test/unit.rb:661:in `each'
+/Users/aschultz/.rbenv/versions/2.1.2/lib/ruby/2.1.0/test/unit.rb:661:in `_run_suites'
+/Users/aschultz/.rbenv/versions/2.1.2/lib/ruby/2.1.0/minitest/unit.rb:884:in `_run_anything'
+/Users/aschultz/.rbenv/versions/2.1.2/lib/ruby/2.1.0/minitest/unit.rb:1092:in `run_tests'
+/Users/aschultz/.rbenv/versions/2.1.2/lib/ruby/2.1.0/minitest/unit.rb:1079:in `block in _run'
+/Users/aschultz/.rbenv/versions/2.1.2/lib/ruby/2.1.0/minitest/unit.rb:1078:in `each'
+/Users/aschultz/.rbenv/versions/2.1.2/lib/ruby/2.1.0/minitest/unit.rb:1078:in `_run'
+/Users/aschultz/.rbenv/versions/2.1.2/lib/ruby/2.1.0/minitest/unit.rb:1066:in `run'
+/Users/aschultz/.rbenv/versions/2.1.2/lib/ruby/2.1.0/test/unit.rb:27:in `run'
+/Users/aschultz/.rbenv/versions/2.1.2/lib/ruby/2.1.0/test/unit.rb:780:in `run'
+/Users/aschultz/.rbenv/versions/2.1.2/lib/ruby/2.1.0/test/unit.rb:372:in `block (2 levels) in autorun'
+/Users/aschultz/.rbenv/versions/2.1.2/lib/ruby/2.1.0/test/unit.rb:33:in `run_once'
+/Users/aschultz/.rbenv/versions/2.1.2/lib/ruby/2.1.0/test/unit.rb:371:in `block in autorun'
+  Rendered displays/_form.html.erb (2.5ms)
+Completed 500 Internal Server Error in 21ms
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mDisplay Load (0.1ms)[0m  SELECT "displays".* FROM "displays" WHERE "displays"."id" = ? LIMIT 1  [["id", 980190962]]
+Processing by DisplaysController#index as HTML
+  [1m[36mDisplay Load (0.1ms)[0m  [1mSELECT "displays".* FROM "displays" [0m
+Completed 200 OK in 4ms (Views: 3.6ms | ActiveRecord: 0.1ms)
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mDisplay Load (0.1ms)[0m  SELECT "displays".* FROM "displays" WHERE "displays"."id" = ? LIMIT 1  [["id", 980190962]]
+Processing by DisplaysController#new as HTML
+ERROR: compiling _app_views_displays__form_html_erb__98182237648422030_70343218577920 RAISED /Users/aschultz/RubymineProjects/my_app/app/views/displays/_form.html.erb:15: syntax error, unexpected ':'
+...tput_buffer.append= ( f.label : total );@output_buffer.safe_...
+...                               ^
+/Users/aschultz/RubymineProjects/my_app/app/views/displays/_form.html.erb:16: syntax error, unexpected ':'
+...ffer.append= ( f.number_field : total );@output_buffer.safe_...
+...                               ^
+Function body:           def _app_views_displays__form_html_erb__98182237648422030_70343218577920(local_assigns, output_buffer)
+            _old_virtual_path, @virtual_path = @virtual_path, "displays/_form";_old_output_buffer = @output_buffer;form = local_assigns[:form];;@output_buffer = output_buffer || ActionView::OutputBuffer.new;@output_buffer.append=  form_for(@display) do |f| @output_buffer.safe_concat('
+');   if @display.errors.any? 
+@output_buffer.safe_concat('    <div id="error_explanation">
+      <h2>');@output_buffer.append= ( pluralize(@display.errors.count, "error") );@output_buffer.safe_concat(' prohibited this display from being saved:</h2>
+
+      <ul>
+');       @display.errors.full_messages.each do |msg| 
+@output_buffer.safe_concat('        <li>');@output_buffer.append= ( msg );@output_buffer.safe_concat('</li>
+');       end 
+@output_buffer.safe_concat('      </ul>
+    </div>
+');   end 
+@output_buffer.safe_concat('
+  <div class="field">
+    ');@output_buffer.append= ( f.label : total );@output_buffer.safe_concat('<br />
+    ');@output_buffer.append= ( f.number_field : total );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('  </div>
+  <div class="field">
+    ');@output_buffer.append= ( f.label :description );@output_buffer.safe_concat('<br />
+    ');@output_buffer.append= ( f.text_area :description );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('  </div>
+  <div class="actions">
+    ');@output_buffer.append= ( f.submit );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('  </div>
+'); end 
+@output_buffer.to_s
+          ensure
+            @virtual_path, @output_buffer = _old_virtual_path, _old_output_buffer
+          end
+
+Backtrace: /Users/aschultz/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-3.2.2/lib/action_view/template.rb:285:in `module_eval'
+/Users/aschultz/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-3.2.2/lib/action_view/template.rb:285:in `compile'
+/Users/aschultz/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-3.2.2/lib/action_view/template.rb:233:in `compile!'
+/Users/aschultz/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-3.2.2/lib/action_view/template.rb:142:in `block in render'
+/Users/aschultz/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/activesupport-3.2.2/lib/active_support/notifications.rb:123:in `block in instrument'
+/Users/aschultz/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/activesupport-3.2.2/lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+/Users/aschultz/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/activesupport-3.2.2/lib/active_support/notifications.rb:123:in `instrument'
+/Users/aschultz/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-3.2.2/lib/action_view/template.rb:141:in `render'
+/Users/aschultz/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-3.2.2/lib/action_view/renderer/partial_renderer.rb:257:in `render_partial'
+/Users/aschultz/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-3.2.2/lib/action_view/renderer/partial_renderer.rb:230:in `block in render'
+/Users/aschultz/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-3.2.2/lib/action_view/renderer/abstract_renderer.rb:38:in `block in instrument'
+/Users/aschultz/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/activesupport-3.2.2/lib/active_support/notifications.rb:123:in `block in instrument'
+/Users/aschultz/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/activesupport-3.2.2/lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+/Users/aschultz/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/activesupport-3.2.2/lib/active_support/notifications.rb:123:in `instrument'
+/Users/aschultz/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-3.2.2/lib/action_view/renderer/abstract_renderer.rb:38:in `instrument'
+/Users/aschultz/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-3.2.2/lib/action_view/renderer/partial_renderer.rb:229:in `render'
+/Users/aschultz/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-3.2.2/lib/action_view/renderer/renderer.rb:41:in `render_partial'
+/Users/aschultz/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-3.2.2/lib/action_view/helpers/rendering_helper.rb:27:in `render'
+/Users/aschultz/RubymineProjects/my_app/app/views/displays/new.html.erb:3:in `_app_views_displays_new_html_erb___1403933968526102678_70343219328680'
+/Users/aschultz/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-3.2.2/lib/action_view/template.rb:143:in `block in render'
+/Users/aschultz/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/activesupport-3.2.2/lib/active_support/notifications.rb:123:in `block in instrument'
+/Users/aschultz/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/activesupport-3.2.2/lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+/Users/aschultz/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/activesupport-3.2.2/lib/active_support/notifications.rb:123:in `instrument'
+/Users/aschultz/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-3.2.2/lib/action_view/template.rb:141:in `render'
+/Users/aschultz/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-3.2.2/lib/action_view/renderer/template_renderer.rb:42:in `block (2 levels) in render_template'
+/Users/aschultz/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-3.2.2/lib/action_view/renderer/abstract_renderer.rb:38:in `block in instrument'
+/Users/aschultz/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/activesupport-3.2.2/lib/active_support/notifications.rb:123:in `block in instrument'
+/Users/aschultz/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/activesupport-3.2.2/lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+/Users/aschultz/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/activesupport-3.2.2/lib/active_support/notifications.rb:123:in `instrument'
+/Users/aschultz/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-3.2.2/lib/action_view/renderer/abstract_renderer.rb:38:in `instrument'
+/Users/aschultz/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-3.2.2/lib/action_view/renderer/template_renderer.rb:41:in `block in render_template'
+/Users/aschultz/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-3.2.2/lib/action_view/renderer/template_renderer.rb:49:in `render_with_layout'
+/Users/aschultz/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-3.2.2/lib/action_view/renderer/template_renderer.rb:40:in `render_template'
+/Users/aschultz/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-3.2.2/lib/action_view/renderer/template_renderer.rb:13:in `render'
+/Users/aschultz/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-3.2.2/lib/action_view/renderer/renderer.rb:36:in `render_template'
+/Users/aschultz/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-3.2.2/lib/action_view/renderer/renderer.rb:17:in `render'
+/Users/aschultz/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-3.2.2/lib/abstract_controller/rendering.rb:109:in `_render_template'
+/Users/aschultz/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-3.2.2/lib/action_controller/metal/streaming.rb:225:in `_render_template'
+/Users/aschultz/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-3.2.2/lib/abstract_controller/rendering.rb:103:in `render_to_body'
+/Users/aschultz/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-3.2.2/lib/action_controller/metal/renderers.rb:28:in `render_to_body'
+/Users/aschultz/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-3.2.2/lib/action_controller/metal/compatibility.rb:50:in `render_to_body'
+/Users/aschultz/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-3.2.2/lib/abstract_controller/rendering.rb:88:in `render'
+/Users/aschultz/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-3.2.2/lib/action_controller/metal/rendering.rb:16:in `render'
+/Users/aschultz/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-3.2.2/lib/action_controller/metal/instrumentation.rb:40:in `block (2 levels) in render'
+/Users/aschultz/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/activesupport-3.2.2/lib/active_support/core_ext/benchmark.rb:5:in `block in ms'
+/Users/aschultz/.rbenv/versions/2.1.2/lib/ruby/2.1.0/benchmark.rb:294:in `realtime'
+/Users/aschultz/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/activesupport-3.2.2/lib/active_support/core_ext/benchmark.rb:5:in `ms'
+/Users/aschultz/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-3.2.2/lib/action_controller/metal/instrumentation.rb:40:in `block in render'
+/Users/aschultz/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-3.2.2/lib/action_controller/metal/instrumentation.rb:83:in `cleanup_view_runtime'
+/Users/aschultz/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/activerecord-3.2.2/lib/active_record/railties/controller_runtime.rb:24:in `cleanup_view_runtime'
+/Users/aschultz/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-3.2.2/lib/action_controller/metal/instrumentation.rb:39:in `render'
+/Users/aschultz/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-3.2.2/lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+/Users/aschultz/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-3.2.2/lib/action_controller/metal/mime_responds.rb:196:in `respond_to'
+/Users/aschultz/RubymineProjects/my_app/app/controllers/displays_controller.rb:29:in `new'
+/Users/aschultz/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-3.2.2/lib/action_controller/metal/implicit_render.rb:4:in `send_action'
+/Users/aschultz/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-3.2.2/lib/abstract_controller/base.rb:167:in `process_action'
+/Users/aschultz/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-3.2.2/lib/action_controller/metal/rendering.rb:10:in `process_action'
+/Users/aschultz/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-3.2.2/lib/abstract_controller/callbacks.rb:18:in `block in process_action'
+/Users/aschultz/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/activesupport-3.2.2/lib/active_support/callbacks.rb:414:in `_run__1377055444556843748__process_action__2219413584953224398__callbacks'
+/Users/aschultz/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/activesupport-3.2.2/lib/active_support/callbacks.rb:405:in `__run_callback'
+/Users/aschultz/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/activesupport-3.2.2/lib/active_support/callbacks.rb:385:in `_run_process_action_callbacks'
+/Users/aschultz/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/activesupport-3.2.2/lib/active_support/callbacks.rb:81:in `run_callbacks'
+/Users/aschultz/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-3.2.2/lib/abstract_controller/callbacks.rb:17:in `process_action'
+/Users/aschultz/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-3.2.2/lib/action_controller/metal/rescue.rb:29:in `process_action'
+/Users/aschultz/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-3.2.2/lib/action_controller/metal/instrumentation.rb:30:in `block in process_action'
+/Users/aschultz/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/activesupport-3.2.2/lib/active_support/notifications.rb:123:in `block in instrument'
+/Users/aschultz/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/activesupport-3.2.2/lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+/Users/aschultz/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/activesupport-3.2.2/lib/active_support/notifications.rb:123:in `instrument'
+/Users/aschultz/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-3.2.2/lib/action_controller/metal/instrumentation.rb:29:in `process_action'
+/Users/aschultz/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-3.2.2/lib/action_controller/metal/params_wrapper.rb:205:in `process_action'
+/Users/aschultz/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/activerecord-3.2.2/lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+/Users/aschultz/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-3.2.2/lib/abstract_controller/base.rb:121:in `process'
+/Users/aschultz/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-3.2.2/lib/abstract_controller/rendering.rb:45:in `process'
+/Users/aschultz/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-3.2.2/lib/action_controller/metal/testing.rb:17:in `process_with_new_base_test'
+/Users/aschultz/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-3.2.2/lib/action_controller/test_case.rb:464:in `process'
+/Users/aschultz/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-3.2.2/lib/action_controller/test_case.rb:49:in `process'
+/Users/aschultz/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-3.2.2/lib/action_controller/test_case.rb:380:in `get'
+/Users/aschultz/RubymineProjects/my_app/test/functional/displays_controller_test.rb:15:in `block in <class:DisplaysControllerTest>'
+/Users/aschultz/.rbenv/versions/2.1.2/lib/ruby/2.1.0/test/unit.rb:869:in `run_test'
+/Users/aschultz/.rbenv/versions/2.1.2/lib/ruby/2.1.0/minitest/unit.rb:1265:in `run'
+/Users/aschultz/.rbenv/versions/2.1.2/lib/ruby/2.1.0/test/unit/testcase.rb:17:in `run'
+/Users/aschultz/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/activesupport-3.2.2/lib/active_support/testing/setup_and_teardown.rb:35:in `block in run'
+/Users/aschultz/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/activesupport-3.2.2/lib/active_support/callbacks.rb:469:in `_run__1672810058022972351__setup__731525998438982421__callbacks'
+/Users/aschultz/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/activesupport-3.2.2/lib/active_support/callbacks.rb:405:in `__run_callback'
+/Users/aschultz/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/activesupport-3.2.2/lib/active_support/callbacks.rb:385:in `_run_setup_callbacks'
+/Users/aschultz/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/activesupport-3.2.2/lib/active_support/callbacks.rb:81:in `run_callbacks'
+/Users/aschultz/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/activesupport-3.2.2/lib/active_support/testing/setup_and_teardown.rb:34:in `run'
+/Users/aschultz/.rbenv/versions/2.1.2/lib/ruby/2.1.0/minitest/unit.rb:940:in `block in _run_suite'
+/Users/aschultz/.rbenv/versions/2.1.2/lib/ruby/2.1.0/minitest/unit.rb:933:in `map'
+/Users/aschultz/.rbenv/versions/2.1.2/lib/ruby/2.1.0/minitest/unit.rb:933:in `_run_suite'
+/Users/aschultz/.rbenv/versions/2.1.2/lib/ruby/2.1.0/test/unit.rb:663:in `block in _run_suites'
+/Users/aschultz/.rbenv/versions/2.1.2/lib/ruby/2.1.0/test/unit.rb:661:in `each'
+/Users/aschultz/.rbenv/versions/2.1.2/lib/ruby/2.1.0/test/unit.rb:661:in `_run_suites'
+/Users/aschultz/.rbenv/versions/2.1.2/lib/ruby/2.1.0/minitest/unit.rb:884:in `_run_anything'
+/Users/aschultz/.rbenv/versions/2.1.2/lib/ruby/2.1.0/minitest/unit.rb:1092:in `run_tests'
+/Users/aschultz/.rbenv/versions/2.1.2/lib/ruby/2.1.0/minitest/unit.rb:1079:in `block in _run'
+/Users/aschultz/.rbenv/versions/2.1.2/lib/ruby/2.1.0/minitest/unit.rb:1078:in `each'
+/Users/aschultz/.rbenv/versions/2.1.2/lib/ruby/2.1.0/minitest/unit.rb:1078:in `_run'
+/Users/aschultz/.rbenv/versions/2.1.2/lib/ruby/2.1.0/minitest/unit.rb:1066:in `run'
+/Users/aschultz/.rbenv/versions/2.1.2/lib/ruby/2.1.0/test/unit.rb:27:in `run'
+/Users/aschultz/.rbenv/versions/2.1.2/lib/ruby/2.1.0/test/unit.rb:780:in `run'
+/Users/aschultz/.rbenv/versions/2.1.2/lib/ruby/2.1.0/test/unit.rb:372:in `block (2 levels) in autorun'
+/Users/aschultz/.rbenv/versions/2.1.2/lib/ruby/2.1.0/test/unit.rb:33:in `run_once'
+/Users/aschultz/.rbenv/versions/2.1.2/lib/ruby/2.1.0/test/unit.rb:371:in `block in autorun'
+  Rendered displays/_form.html.erb (0.5ms)
+Completed 500 Internal Server Error in 2ms
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mDisplay Load (0.0ms)[0m  [1mSELECT "displays".* FROM "displays" WHERE "displays"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+Processing by DisplaysController#show as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[35mDisplay Load (0.0ms)[0m  SELECT "displays".* FROM "displays" WHERE "displays"."id" = ? LIMIT 1  [["id", "980190962"]]
+Completed 200 OK in 2ms (Views: 2.0ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mDisplay Load (0.1ms)[0m  [1mSELECT "displays".* FROM "displays" WHERE "displays"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+Processing by DisplaysController#update as HTML
+  Parameters: {"display"=>{"id"=>"980190962", "total"=>"1", "description"=>"MyText", "created_at"=>"2016-06-17 19:49:36 UTC", "updated_at"=>"2016-06-17 19:49:36 UTC"}, "id"=>"980190962"}
+  [1m[35mDisplay Load (0.0ms)[0m  SELECT "displays".* FROM "displays" WHERE "displays"."id" = ? LIMIT 1  [["id", "980190962"]]
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/displays/980190962
+Completed 302 Found in 2ms (ActiveRecord: 0.1ms)
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (0.2ms)[0m  DELETE FROM "displays"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "displays" ("total", "description", "created_at", "updated_at", "id") VALUES (1, 'MyText', '2016-06-17 19:50:31', '2016-06-17 19:50:31', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "displays" ("total", "description", "created_at", "updated_at", "id") VALUES (1, 'MyText', '2016-06-17 19:50:31', '2016-06-17 19:50:31', 298486374)
+  [1m[36m (2.3ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (0.2ms)[0m  DELETE FROM "displays"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "displays" ("total", "description", "created_at", "updated_at", "id") VALUES (1, 'MyText', '2016-06-17 19:50:32', '2016-06-17 19:50:32', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "displays" ("total", "description", "created_at", "updated_at", "id") VALUES (1, 'MyText', '2016-06-17 19:50:32', '2016-06-17 19:50:32', 298486374)
+  [1m[36m (2.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mDisplay Load (0.1ms)[0m  [1mSELECT "displays".* FROM "displays" WHERE "displays"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.0ms)[0m  SELECT COUNT(*) FROM "displays" 
+Processing by DisplaysController#create as HTML
+  Parameters: {"display"=>{"id"=>"980190962", "total"=>"1", "description"=>"MyText", "created_at"=>"2016-06-17 19:50:32 UTC", "updated_at"=>"2016-06-17 19:50:32 UTC"}}
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "displays" ("created_at", "description", "total", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Fri, 17 Jun 2016 19:50:32 UTC +00:00], ["description", "MyText"], ["total", 1], ["updated_at", Fri, 17 Jun 2016 19:50:32 UTC +00:00]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/displays/980190963
+Completed 302 Found in 3ms (ActiveRecord: 0.4ms)
+  [1m[35m (0.0ms)[0m  SELECT COUNT(*) FROM "displays" 
+  [1m[36m (0.3ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mDisplay Load (0.1ms)[0m  [1mSELECT "displays".* FROM "displays" WHERE "displays"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "displays" 
+Processing by DisplaysController#destroy as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[36mDisplay Load (0.0ms)[0m  [1mSELECT "displays".* FROM "displays" WHERE "displays"."id" = ? LIMIT 1[0m  [["id", "980190962"]]
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM "displays" WHERE "displays"."id" = ?[0m  [["id", 980190962]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/displays
+Completed 302 Found in 2ms (ActiveRecord: 0.3ms)
+  [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "displays" [0m
+  [1m[35m (0.2ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mDisplay Load (0.1ms)[0m  SELECT "displays".* FROM "displays" WHERE "displays"."id" = ? LIMIT 1  [["id", 980190962]]
+Processing by DisplaysController#edit as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[36mDisplay Load (0.0ms)[0m  [1mSELECT "displays".* FROM "displays" WHERE "displays"."id" = ? LIMIT 1[0m  [["id", "980190962"]]
+  Rendered displays/_form.html.erb (10.1ms)
+Completed 200 OK in 19ms (Views: 18.1ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mDisplay Load (0.1ms)[0m  SELECT "displays".* FROM "displays" WHERE "displays"."id" = ? LIMIT 1  [["id", 980190962]]
+Processing by DisplaysController#index as HTML
+  [1m[36mDisplay Load (0.1ms)[0m  [1mSELECT "displays".* FROM "displays" [0m
+Completed 200 OK in 3ms (Views: 2.9ms | ActiveRecord: 0.1ms)
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mDisplay Load (0.1ms)[0m  SELECT "displays".* FROM "displays" WHERE "displays"."id" = ? LIMIT 1  [["id", 980190962]]
+Processing by DisplaysController#new as HTML
+  Rendered displays/_form.html.erb (1.2ms)
+Completed 200 OK in 3ms (Views: 2.6ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mDisplay Load (0.0ms)[0m  [1mSELECT "displays".* FROM "displays" WHERE "displays"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+Processing by DisplaysController#show as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[35mDisplay Load (0.0ms)[0m  SELECT "displays".* FROM "displays" WHERE "displays"."id" = ? LIMIT 1  [["id", "980190962"]]
+Completed 200 OK in 2ms (Views: 1.4ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mDisplay Load (0.1ms)[0m  [1mSELECT "displays".* FROM "displays" WHERE "displays"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+Processing by DisplaysController#update as HTML
+  Parameters: {"display"=>{"id"=>"980190962", "total"=>"1", "description"=>"MyText", "created_at"=>"2016-06-17 19:50:32 UTC", "updated_at"=>"2016-06-17 19:50:32 UTC"}, "id"=>"980190962"}
+  [1m[35mDisplay Load (0.0ms)[0m  SELECT "displays".* FROM "displays" WHERE "displays"."id" = ? LIMIT 1  [["id", "980190962"]]
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/displays/980190962
+Completed 302 Found in 2ms (ActiveRecord: 0.1ms)
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (0.2ms)[0m  DELETE FROM "displays"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "displays" ("total", "description", "created_at", "updated_at", "id") VALUES (1, 'MyText', '2016-06-17 19:50:51', '2016-06-17 19:50:51', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "displays" ("total", "description", "created_at", "updated_at", "id") VALUES (1, 'MyText', '2016-06-17 19:50:51', '2016-06-17 19:50:51', 298486374)
+  [1m[36m (2.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (0.2ms)[0m  DELETE FROM "displays"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "displays" ("total", "description", "created_at", "updated_at", "id") VALUES (1, 'MyText', '2016-06-17 19:50:52', '2016-06-17 19:50:52', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "displays" ("total", "description", "created_at", "updated_at", "id") VALUES (1, 'MyText', '2016-06-17 19:50:52', '2016-06-17 19:50:52', 298486374)
+  [1m[36m (2.4ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mDisplay Load (0.1ms)[0m  [1mSELECT "displays".* FROM "displays" WHERE "displays"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "displays" 
+Processing by DisplaysController#create as HTML
+  Parameters: {"display"=>{"id"=>"980190962", "total"=>"1", "description"=>"MyText", "created_at"=>"2016-06-17 19:50:52 UTC", "updated_at"=>"2016-06-17 19:50:52 UTC"}}
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "displays" ("created_at", "description", "total", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Fri, 17 Jun 2016 19:50:52 UTC +00:00], ["description", "MyText"], ["total", 1], ["updated_at", Fri, 17 Jun 2016 19:50:52 UTC +00:00]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/displays/980190963
+Completed 302 Found in 3ms (ActiveRecord: 0.3ms)
+  [1m[35m (0.0ms)[0m  SELECT COUNT(*) FROM "displays" 
+  [1m[36m (0.3ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mDisplay Load (0.1ms)[0m  [1mSELECT "displays".* FROM "displays" WHERE "displays"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.0ms)[0m  SELECT COUNT(*) FROM "displays" 
+Processing by DisplaysController#destroy as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[36mDisplay Load (0.0ms)[0m  [1mSELECT "displays".* FROM "displays" WHERE "displays"."id" = ? LIMIT 1[0m  [["id", "980190962"]]
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mDELETE FROM "displays" WHERE "displays"."id" = ?[0m  [["id", 980190962]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/displays
+Completed 302 Found in 1ms (ActiveRecord: 0.2ms)
+  [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "displays" [0m
+  [1m[35m (0.3ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mDisplay Load (0.0ms)[0m  SELECT "displays".* FROM "displays" WHERE "displays"."id" = ? LIMIT 1  [["id", 980190962]]
+Processing by DisplaysController#edit as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[36mDisplay Load (0.0ms)[0m  [1mSELECT "displays".* FROM "displays" WHERE "displays"."id" = ? LIMIT 1[0m  [["id", "980190962"]]
+  Rendered displays/_form.html.erb (5.0ms)
+Completed 200 OK in 15ms (Views: 14.6ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mDisplay Load (0.1ms)[0m  SELECT "displays".* FROM "displays" WHERE "displays"."id" = ? LIMIT 1  [["id", 980190962]]
+Processing by DisplaysController#index as HTML
+  [1m[36mDisplay Load (0.1ms)[0m  [1mSELECT "displays".* FROM "displays" [0m
+Completed 200 OK in 3ms (Views: 2.2ms | ActiveRecord: 0.1ms)
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mDisplay Load (0.0ms)[0m  SELECT "displays".* FROM "displays" WHERE "displays"."id" = ? LIMIT 1  [["id", 980190962]]
+Processing by DisplaysController#new as HTML
+  Rendered displays/_form.html.erb (1.0ms)
+Completed 200 OK in 2ms (Views: 2.3ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mDisplay Load (0.0ms)[0m  [1mSELECT "displays".* FROM "displays" WHERE "displays"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+Processing by DisplaysController#show as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[35mDisplay Load (0.0ms)[0m  SELECT "displays".* FROM "displays" WHERE "displays"."id" = ? LIMIT 1  [["id", "980190962"]]
+Completed 200 OK in 2ms (Views: 1.7ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mDisplay Load (0.1ms)[0m  [1mSELECT "displays".* FROM "displays" WHERE "displays"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+Processing by DisplaysController#update as HTML
+  Parameters: {"display"=>{"id"=>"980190962", "total"=>"1", "description"=>"MyText", "created_at"=>"2016-06-17 19:50:52 UTC", "updated_at"=>"2016-06-17 19:50:52 UTC"}, "id"=>"980190962"}
+  [1m[35mDisplay Load (0.0ms)[0m  SELECT "displays".* FROM "displays" WHERE "displays"."id" = ? LIMIT 1  [["id", "980190962"]]
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/displays/980190962
+Completed 302 Found in 2ms (ActiveRecord: 0.1ms)
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (0.2ms)[0m  DELETE FROM "displays"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "displays" ("total", "description", "created_at", "updated_at", "id") VALUES (1, 'MyText', '2016-06-17 19:51:08', '2016-06-17 19:51:08', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "displays" ("total", "description", "created_at", "updated_at", "id") VALUES (1, 'MyText', '2016-06-17 19:51:08', '2016-06-17 19:51:08', 298486374)
+  [1m[36m (2.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (0.2ms)[0m  DELETE FROM "displays"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "displays" ("total", "description", "created_at", "updated_at", "id") VALUES (1, 'MyText', '2016-06-17 19:51:09', '2016-06-17 19:51:09', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "displays" ("total", "description", "created_at", "updated_at", "id") VALUES (1, 'MyText', '2016-06-17 19:51:09', '2016-06-17 19:51:09', 298486374)
+  [1m[36m (2.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mDisplay Load (0.2ms)[0m  [1mSELECT "displays".* FROM "displays" WHERE "displays"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.0ms)[0m  SELECT COUNT(*) FROM "displays" 
+Processing by DisplaysController#create as HTML
+  Parameters: {"display"=>{"id"=>"980190962", "total"=>"1", "description"=>"MyText", "created_at"=>"2016-06-17 19:51:09 UTC", "updated_at"=>"2016-06-17 19:51:09 UTC"}}
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "displays" ("created_at", "description", "total", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Fri, 17 Jun 2016 19:51:09 UTC +00:00], ["description", "MyText"], ["total", 1], ["updated_at", Fri, 17 Jun 2016 19:51:09 UTC +00:00]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/displays/980190963
+Completed 302 Found in 3ms (ActiveRecord: 0.4ms)
+  [1m[35m (0.0ms)[0m  SELECT COUNT(*) FROM "displays" 
+  [1m[36m (0.3ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mDisplay Load (0.1ms)[0m  [1mSELECT "displays".* FROM "displays" WHERE "displays"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.0ms)[0m  SELECT COUNT(*) FROM "displays" 
+Processing by DisplaysController#destroy as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[36mDisplay Load (0.0ms)[0m  [1mSELECT "displays".* FROM "displays" WHERE "displays"."id" = ? LIMIT 1[0m  [["id", "980190962"]]
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM "displays" WHERE "displays"."id" = ?[0m  [["id", 980190962]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/displays
+Completed 302 Found in 1ms (ActiveRecord: 0.2ms)
+  [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "displays" [0m
+  [1m[35m (0.2ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mDisplay Load (0.1ms)[0m  SELECT "displays".* FROM "displays" WHERE "displays"."id" = ? LIMIT 1  [["id", 980190962]]
+Processing by DisplaysController#edit as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[36mDisplay Load (0.0ms)[0m  [1mSELECT "displays".* FROM "displays" WHERE "displays"."id" = ? LIMIT 1[0m  [["id", "980190962"]]
+  Rendered displays/_form.html.erb (6.1ms)
+Completed 200 OK in 16ms (Views: 15.3ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mDisplay Load (0.1ms)[0m  SELECT "displays".* FROM "displays" WHERE "displays"."id" = ? LIMIT 1  [["id", 980190962]]
+Processing by DisplaysController#index as HTML
+  [1m[36mDisplay Load (0.1ms)[0m  [1mSELECT "displays".* FROM "displays" [0m
+Completed 200 OK in 3ms (Views: 2.6ms | ActiveRecord: 0.1ms)
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mDisplay Load (0.1ms)[0m  SELECT "displays".* FROM "displays" WHERE "displays"."id" = ? LIMIT 1  [["id", 980190962]]
+Processing by DisplaysController#new as HTML
+  Rendered displays/_form.html.erb (1.0ms)
+Completed 200 OK in 3ms (Views: 2.3ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mDisplay Load (0.0ms)[0m  [1mSELECT "displays".* FROM "displays" WHERE "displays"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+Processing by DisplaysController#show as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[35mDisplay Load (0.0ms)[0m  SELECT "displays".* FROM "displays" WHERE "displays"."id" = ? LIMIT 1  [["id", "980190962"]]
+Completed 200 OK in 2ms (Views: 1.7ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mDisplay Load (0.1ms)[0m  [1mSELECT "displays".* FROM "displays" WHERE "displays"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+Processing by DisplaysController#update as HTML
+  Parameters: {"display"=>{"id"=>"980190962", "total"=>"1", "description"=>"MyText", "created_at"=>"2016-06-17 19:51:09 UTC", "updated_at"=>"2016-06-17 19:51:09 UTC"}, "id"=>"980190962"}
+  [1m[35mDisplay Load (0.0ms)[0m  SELECT "displays".* FROM "displays" WHERE "displays"."id" = ? LIMIT 1  [["id", "980190962"]]
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/displays/980190962
+Completed 302 Found in 2ms (ActiveRecord: 0.1ms)
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (0.3ms)[0m  DELETE FROM "displays"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "displays" ("total", "description", "created_at", "updated_at", "id") VALUES (1, 'MyText', '2016-06-17 19:54:31', '2016-06-17 19:54:31', 980190962)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "displays" ("total", "description", "created_at", "updated_at", "id") VALUES (1, 'MyText', '2016-06-17 19:54:31', '2016-06-17 19:54:31', 298486374)
+  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (0.2ms)[0m  DELETE FROM "displays"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "displays" ("total", "description", "created_at", "updated_at", "id") VALUES (1, 'MyText', '2016-06-17 19:54:32', '2016-06-17 19:54:32', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "displays" ("total", "description", "created_at", "updated_at", "id") VALUES (1, 'MyText', '2016-06-17 19:54:32', '2016-06-17 19:54:32', 298486374)
+  [1m[36m (3.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mDisplay Load (0.2ms)[0m  [1mSELECT "displays".* FROM "displays" WHERE "displays"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "displays" 
+Processing by DisplaysController#create as HTML
+  Parameters: {"display"=>{"id"=>"980190962", "total"=>"1", "description"=>"MyText", "created_at"=>"2016-06-17 19:54:32 UTC", "updated_at"=>"2016-06-17 19:54:32 UTC"}}
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "displays" ("created_at", "description", "total", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Fri, 17 Jun 2016 19:54:32 UTC +00:00], ["description", "MyText"], ["total", 1], ["updated_at", Fri, 17 Jun 2016 19:54:32 UTC +00:00]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/displays/980190963
+Completed 302 Found in 3ms (ActiveRecord: 0.4ms)
+  [1m[35m (0.0ms)[0m  SELECT COUNT(*) FROM "displays" 
+  [1m[36m (0.4ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mDisplay Load (0.1ms)[0m  [1mSELECT "displays".* FROM "displays" WHERE "displays"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "displays" 
+Processing by DisplaysController#destroy as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[36mDisplay Load (0.0ms)[0m  [1mSELECT "displays".* FROM "displays" WHERE "displays"."id" = ? LIMIT 1[0m  [["id", "980190962"]]
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM "displays" WHERE "displays"."id" = ?[0m  [["id", 980190962]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/displays
+Completed 302 Found in 2ms (ActiveRecord: 0.3ms)
+  [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "displays" [0m
+  [1m[35m (0.3ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mDisplay Load (0.1ms)[0m  SELECT "displays".* FROM "displays" WHERE "displays"."id" = ? LIMIT 1  [["id", 980190962]]
+Processing by DisplaysController#edit as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[36mDisplay Load (0.0ms)[0m  [1mSELECT "displays".* FROM "displays" WHERE "displays"."id" = ? LIMIT 1[0m  [["id", "980190962"]]
+  Rendered displays/_form.html.erb (5.3ms)
+Completed 200 OK in 16ms (Views: 15.6ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mDisplay Load (0.1ms)[0m  SELECT "displays".* FROM "displays" WHERE "displays"."id" = ? LIMIT 1  [["id", 980190962]]
+Processing by DisplaysController#index as HTML
+  [1m[36mDisplay Load (0.1ms)[0m  [1mSELECT "displays".* FROM "displays" [0m
+Completed 200 OK in 3ms (Views: 2.5ms | ActiveRecord: 0.1ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mDisplay Load (0.0ms)[0m  SELECT "displays".* FROM "displays" WHERE "displays"."id" = ? LIMIT 1  [["id", 980190962]]
+Processing by DisplaysController#new as HTML
+  Rendered displays/_form.html.erb (1.3ms)
+Completed 200 OK in 3ms (Views: 2.8ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mDisplay Load (0.0ms)[0m  [1mSELECT "displays".* FROM "displays" WHERE "displays"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+Processing by DisplaysController#show as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[35mDisplay Load (0.0ms)[0m  SELECT "displays".* FROM "displays" WHERE "displays"."id" = ? LIMIT 1  [["id", "980190962"]]
+Completed 200 OK in 2ms (Views: 1.6ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mDisplay Load (0.1ms)[0m  [1mSELECT "displays".* FROM "displays" WHERE "displays"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+Processing by DisplaysController#update as HTML
+  Parameters: {"display"=>{"id"=>"980190962", "total"=>"1", "description"=>"MyText", "created_at"=>"2016-06-17 19:54:32 UTC", "updated_at"=>"2016-06-17 19:54:32 UTC"}, "id"=>"980190962"}
+  [1m[35mDisplay Load (0.0ms)[0m  SELECT "displays".* FROM "displays" WHERE "displays"."id" = ? LIMIT 1  [["id", "980190962"]]
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/displays/980190962
+Completed 302 Found in 2ms (ActiveRecord: 0.1ms)
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (0.2ms)[0m  DELETE FROM "displays"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "displays" ("total", "description", "created_at", "updated_at", "id") VALUES (1, 'MyText', '2016-06-17 19:56:40', '2016-06-17 19:56:40', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "displays" ("total", "description", "created_at", "updated_at", "id") VALUES (1, 'MyText', '2016-06-17 19:56:40', '2016-06-17 19:56:40', 298486374)
+  [1m[36m (2.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (0.2ms)[0m  DELETE FROM "displays"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "displays" ("total", "description", "created_at", "updated_at", "id") VALUES (1, 'MyText', '2016-06-17 19:56:41', '2016-06-17 19:56:41', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "displays" ("total", "description", "created_at", "updated_at", "id") VALUES (1, 'MyText', '2016-06-17 19:56:41', '2016-06-17 19:56:41', 298486374)
+  [1m[36m (2.4ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mDisplay Load (0.1ms)[0m  [1mSELECT "displays".* FROM "displays" WHERE "displays"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.0ms)[0m  SELECT COUNT(*) FROM "displays" 
+Processing by DisplaysController#create as HTML
+  Parameters: {"display"=>{"id"=>"980190962", "total"=>"1", "description"=>"MyText", "created_at"=>"2016-06-17 19:56:41 UTC", "updated_at"=>"2016-06-17 19:56:41 UTC"}}
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "displays" ("created_at", "description", "total", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Fri, 17 Jun 2016 19:56:41 UTC +00:00], ["description", "MyText"], ["total", 1], ["updated_at", Fri, 17 Jun 2016 19:56:41 UTC +00:00]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/displays/980190963
+Completed 302 Found in 3ms (ActiveRecord: 0.4ms)
+  [1m[35m (0.0ms)[0m  SELECT COUNT(*) FROM "displays" 
+  [1m[36m (0.3ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mDisplay Load (0.1ms)[0m  [1mSELECT "displays".* FROM "displays" WHERE "displays"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.0ms)[0m  SELECT COUNT(*) FROM "displays" 
+Processing by DisplaysController#destroy as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[36mDisplay Load (0.0ms)[0m  [1mSELECT "displays".* FROM "displays" WHERE "displays"."id" = ? LIMIT 1[0m  [["id", "980190962"]]
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM "displays" WHERE "displays"."id" = ?[0m  [["id", 980190962]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/displays
+Completed 302 Found in 1ms (ActiveRecord: 0.2ms)
+  [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "displays" [0m
+  [1m[35m (0.3ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mDisplay Load (0.1ms)[0m  SELECT "displays".* FROM "displays" WHERE "displays"."id" = ? LIMIT 1  [["id", 980190962]]
+Processing by DisplaysController#edit as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[36mDisplay Load (0.0ms)[0m  [1mSELECT "displays".* FROM "displays" WHERE "displays"."id" = ? LIMIT 1[0m  [["id", "980190962"]]
+  Rendered displays/_form.html.erb (5.1ms)
+Completed 200 OK in 16ms (Views: 15.7ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mDisplay Load (0.1ms)[0m  SELECT "displays".* FROM "displays" WHERE "displays"."id" = ? LIMIT 1  [["id", 980190962]]
+Processing by DisplaysController#index as HTML
+  [1m[36mDisplay Load (0.1ms)[0m  [1mSELECT "displays".* FROM "displays" [0m
+Completed 200 OK in 3ms (Views: 2.6ms | ActiveRecord: 0.1ms)
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mDisplay Load (0.1ms)[0m  SELECT "displays".* FROM "displays" WHERE "displays"."id" = ? LIMIT 1  [["id", 980190962]]
+Processing by DisplaysController#new as HTML
+  Rendered displays/_form.html.erb (1.4ms)
+Completed 200 OK in 4ms (Views: 3.2ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mDisplay Load (0.1ms)[0m  [1mSELECT "displays".* FROM "displays" WHERE "displays"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+Processing by DisplaysController#show as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[35mDisplay Load (0.0ms)[0m  SELECT "displays".* FROM "displays" WHERE "displays"."id" = ? LIMIT 1  [["id", "980190962"]]
+Completed 200 OK in 2ms (Views: 1.7ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mDisplay Load (0.0ms)[0m  [1mSELECT "displays".* FROM "displays" WHERE "displays"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+Processing by DisplaysController#update as HTML
+  Parameters: {"display"=>{"id"=>"980190962", "total"=>"1", "description"=>"MyText", "created_at"=>"2016-06-17 19:56:41 UTC", "updated_at"=>"2016-06-17 19:56:41 UTC"}, "id"=>"980190962"}
+  [1m[35mDisplay Load (0.0ms)[0m  SELECT "displays".* FROM "displays" WHERE "displays"."id" = ? LIMIT 1  [["id", "980190962"]]
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/displays/980190962
+Completed 302 Found in 2ms (ActiveRecord: 0.1ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
