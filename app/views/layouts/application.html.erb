@@ -4,7 +4,7 @@
 
 <html>
 <head>
-  <title>DND's little helper</title>
+  <title>DND Helper</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
@@ -18,12 +18,12 @@
 
 <nav>
   <div class="nav-wrapper">
-    <a href="/" style="padding-top: 8px; padding-left: 15px;" href="#" class="brand-logo">
+    <a href="/" style="padding-top: 8px; padding-left: 15px;" class="brand-logo">
       <%= image_tag "vg.png"%>
     </a>
     <ul class="right hide-on-med-and-down">
-      <li class="<%= is_active?('/displays') %>"><a href="/displays" class="waves-effect waves-light btn">MAP</a></li>
-      <li class="<%= is_active?('/displays/3') %>"><a href="/displays/3" class="waves-effect waves-light btn">XP-Tracker</a></li>
+      <li class="<%= is_active?('/map') %>"><a href="/map" class="waves-effect waves-light btn">MAP</a></li>
+      <li class="<%= is_active?('/xp') %>"><a href="/xp" class="waves-effect waves-light btn">XP-Tracker</a></li>
     </ul>
   </div>
 </nav>

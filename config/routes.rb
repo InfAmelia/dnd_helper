@@ -2,9 +2,9 @@ MyApp::Application.routes.draw do
   resources :displays
   resources :pages
 
-  root :to => "pages#index"
+  root :to => "pages#home"
 
-
+  get '/map', to: "pages#map"
   get '/xp', to: "pages#xp_tracker"
 
   # The priority is based upon order of creation:

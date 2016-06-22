@@ -31,11 +31,19 @@ class PagesController < ApplicationController
   end
 
   def xp_tracker
-    @Page = Page.find_by_title("xp tracker")
+    @display = Display.find_by_description("xp_tracker")
 
     respond_to do |format|
-      format.html
-      format.json { render json: @Page}
+      format.html # new.html.erb
+      format.json { render json: @display }
     end
+  end
+
+  def map
+
+  end
+
+  def home
+
   end
 end
