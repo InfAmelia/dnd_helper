@@ -163,6 +163,3 @@ DEPENDENCIES
   sqlite3
   test-unit (~> 2.5.0)
   uglifier (>= 1.0.3)
-
-BUNDLED WITH
-   1.12.5
