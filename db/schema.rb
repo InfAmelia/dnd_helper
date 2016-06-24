@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20160618224919) do
+ActiveRecord::Schema.define(:version => 20160624220100) do
 
   create_table "displays", :force => true do |t|
     t.text     "description"
@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(:version => 20160618224919) do
     t.datetime "updated_at",  :null => false
     t.decimal  "xp_min"
     t.decimal  "xp_max"
+    t.decimal  "level"
   end
 
   create_table "pages", :force => true do |t|
