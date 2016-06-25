@@ -13,15 +13,6 @@
 
 ActiveRecord::Schema.define(:version => 20160625212927) do
 
-  create_table "displays", :force => true do |t|
-    t.text     "description"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
-    t.decimal  "xp_min"
-    t.decimal  "xp_max"
-    t.decimal  "level"
-  end
-
   create_table "pages", :force => true do |t|
     t.string   "title"
     t.string   "text"
