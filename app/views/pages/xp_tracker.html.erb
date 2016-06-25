@@ -9,7 +9,7 @@
 </style>
 
 <div class="container">
-  <h1 class="<%= calculate_css(@display) -%>"><%= @display.xp_min.to_i %></h1>
+  <h1 class="<%= calculate_css(@party) -%>"><%= @party.current_xp.to_i %></h1>
   <hr />
-  <h1><%= max_xp(@display.level).to_i  %></h1>
+  <h1><%= max_xp(@party.current_level).to_i  %></h1>
 </div>

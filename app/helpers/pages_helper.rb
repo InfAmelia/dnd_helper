@@ -1,6 +1,6 @@
 module PagesHelper
-   def calculate_css(xp_object)
-       ratio = xp_object.xp_min / max_xp(xp_object.level)
+   def calculate_css(party)
+       ratio = party.current_xp / max_xp(party.current_level)
 
        severity = if ratio > 0.9
            "green-text text-accent-3"

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20160624220100) do
+ActiveRecord::Schema.define(:version => 20160625212927) do
 
   create_table "displays", :force => true do |t|
     t.text     "description"
@@ -27,6 +27,13 @@ ActiveRecord::Schema.define(:version => 20160624220100) do
     t.string   "text"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "parties", :force => true do |t|
+    t.integer  "current_xp"
+    t.integer  "current_level"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
   end
 
 end
