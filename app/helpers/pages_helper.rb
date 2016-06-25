@@ -25,41 +25,41 @@ module PagesHelper
 
      def max_xp(level)
        max = if level > 18
-         50000
+         355000
        elsif level > 17
-         40000
+         305000
        elsif level > 16
-         40000
+         265000
        elsif level > 15
-         30000
+         225000
        elsif level > 14
-         30000
+         195000
        elsif level > 13
-         25000
+         165000
        elsif level > 12
-         20000
+         140000
        elsif level > 11
-         20000
+         120000
        elsif level > 10
-         15000
+         100000
        elsif level > 9
-         21000
+         85000
        elsif level > 8
-         16000
+         64000
        elsif level > 7
-         14000
+         48000
        elsif level > 6
-         11000
+         34000
        elsif level > 5
-         9000
+         23000
        elsif level > 4
-         7500
+         14000
        elsif level > 3
-         3800
+         6500
        elsif level > 2
-         1800
+         2700
        elsif level > 1
-         600
+         900
        else
          300
        end
