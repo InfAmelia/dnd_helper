@@ -31,8 +31,7 @@ class PagesController < ApplicationController
   end
 
   def xp_tracker
-    @display = Display.find_by_description("xp_tracker")
-
+    @party = Party.find_by_id(1)
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @display }
