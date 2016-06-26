@@ -1,0 +1,11 @@
+<h2 style='text-align: center;'>Session #<%= @Party.id %></h2>
+
+<div style="padding-top:20px;" class="container">
+
+  <div class="row">
+    <% draw_table.each do |seat| %>
+      <%= seat.html_safe %>
+    <% end %>
+  </div>
+
+</div>
