@@ -1,6 +1,13 @@
 MyApp::Application.routes.draw do
+  # get "party/index"
+  #
+  # get "party/show"
+  #
+  # get "party/edit"
+
   resources :displays
   resources :pages
+  resources :party
 
   root :to => "pages#home"
 
