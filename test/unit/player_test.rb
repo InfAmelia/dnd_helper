@@ -1,9 +1,6 @@
 require 'test_helper'
 
 class PlayerTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
 
   test "validates for name, level, armor class, and passive perception" do
     player = Player.new
@@ -24,7 +21,7 @@ class PlayerTest < ActiveSupport::TestCase
   test "set health and initiative" do
     player = players(:valid_player)
     player.battle_setup(5, 23)
-    assert player.initiative == 5
+    assert_equal 5, player.initiative
     assert_equal 23, player.current_health
   end
 
@@ -44,9 +41,12 @@ class PlayerTest < ActiveSupport::TestCase
 
   test "level up adds 1 to level" do
     player = players(:valid_player)
-    player_level = player.level
+    assert_equal 3, player.level
+
+    expected_level = player.level + 1
     player.level_up
-    assert_equal player.level, (player_level + 1)
+    
+    assert_equal expected_level, player.level
   end
 
   test "change armor class successfully changes the ac to a new value" do
