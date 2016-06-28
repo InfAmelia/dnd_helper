@@ -12,14 +12,17 @@ class Player < ActiveRecord::Base
   end
 
   def change_health(health_difference)
-    self.update_attributes(current_health: (self.current_health + health_difference))
+    self.current_health += health_difference
+    self.save!
   end
 
   def level_up
-    self.update_attributes(level: (self.level + 1))
+    self.level += 1
+    self.save!
   end
 
   def change_armor_class(new_ac)
-    self.update_attributes(armor_class: new_ac)
+    self.armor_class = new_ac
+    self.save!
   end
 end
