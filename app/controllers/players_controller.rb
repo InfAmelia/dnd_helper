@@ -31,12 +31,12 @@ class PlayersController < ApplicationController
   end
 
   def create
-  
+
     @Player = Player.new(
       :name               => params[:player][:name],
-      :level              => params[:player][:level],
-      :armor_class        => params[:player][:armor_class],
-      :passive_perception => params[:player][:passive_perception])
+      :level              => params[:player][:level].to_i,
+      :armor_class        => params[:player][:armor_class].to_i,
+      :passive_perception => params[:player][:passive_perception].to_i)
 
     if @Player.save!
       redirect_to @Player
