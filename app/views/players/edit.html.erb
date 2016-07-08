@@ -42,6 +42,13 @@
           </div>
         </div>
 
+        <div class="row" style="margin-top:25px;">
+          <div class="col s8" style="display:block;text-align:center;">
+            <hr style="border:none;border-bottom:solid 0.5px #9e9e9e;" />
+            <%= button_to "delete #{@Player.name} forever", @Player, method: :delete, class: "btn-large red lighten-1"  %>
+          </div>
+        </div>
+
       <% end %>
     </div>
   </div>

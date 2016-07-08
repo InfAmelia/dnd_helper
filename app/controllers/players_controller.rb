@@ -58,7 +58,7 @@ class PlayersController < ApplicationController
   def update
     @Player = Player.find(params[:id])
     if @Player.update_attributes(params[:player])
-      redirect_to @Players, notice: "'Player was updated successfully.'"
+      redirect_to action: 'index', notice: "'Player was updated successfully.'"
     else
       render action: 'edit'
     end
@@ -67,9 +67,9 @@ class PlayersController < ApplicationController
   def destroy
     @Player = Player.find(params[:id])
     if @Player.destroy
-      redirect_to @Players, notice: "#{@Player} has been deleted"
+      redirect_to action: 'index', notice: "#{@Player} has been deleted"
     else
-      render action: 'index'
+      render action: 'edit', notice: "#{@Player} was not deleted"
     end
   end
 

@@ -42,7 +42,7 @@ class PlayersControllerTest < ActionController::TestCase
       :passive_perception => 12
     }
 
-    # Set john to equal player with id one, previously bob 
+    # Set john to equal player with id one, previously bob
     john = Player.find(1)
 
     assert_equal 'john', john.name
@@ -50,5 +50,12 @@ class PlayersControllerTest < ActionController::TestCase
     assert_equal 10, john.armor_class
     assert_equal 12, john.passive_perception
 
+  end
+
+  test "should delete player" do
+
+    assert_difference("Player.count", -1) do
+      delete :destroy, id: 1
+    end
   end
 end
