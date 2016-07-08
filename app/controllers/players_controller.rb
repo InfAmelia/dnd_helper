@@ -41,17 +41,26 @@ class PlayersController < ApplicationController
     if @Player.save!
       redirect_to @Player
     else
-      render action: 'new'
+      render action: 'new', notice: "Player not created successfully. Make sure all fields are filled out."
     end
 
+  end
+
+  def edit
+    @Player = Player.find(params[:id])
+
+    respond_to do |format|
+      format.html # new.html.erb
+      format.json { render json: @Player }
+    end
   end
 
   def update
     @Player = Player.find(params[:id])
     if @Player.update_attributes(params[:player])
-      redirect_to @Player, notice: "'Player was updated successfully.'"
+      redirect_to @Players, notice: "'Player was updated successfully.'"
     else
-      render action: 'show'
+      render action: 'edit'
     end
   end
 
@@ -60,7 +69,7 @@ class PlayersController < ApplicationController
     if @Player.destroy
       redirect_to @Players, notice: "#{@Player} has been deleted"
     else
-      render action: 'show'
+      render action: 'index'
     end
   end
 

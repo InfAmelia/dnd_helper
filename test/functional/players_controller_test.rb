@@ -25,4 +25,30 @@ class PlayersControllerTest < ActionController::TestCase
 
     assert_redirected_to player_path(Player.last)
   end
+
+  test "should update player" do
+    bob = Player.find(1)
+
+    assert_equal "bob", bob.name
+    assert_equal 3, bob.level
+    assert_equal 14, bob.armor_class
+    assert_equal 5, bob.passive_perception
+
+    put :update, id: 1, player:
+    {
+      :name => 'john',
+      :level => 4,
+      :armor_class => 10,
+      :passive_perception => 12
+    }
+
+    # Set john to equal player with id one, previously bob 
+    john = Player.find(1)
+
+    assert_equal 'john', john.name
+    assert_equal 4, john.level
+    assert_equal 10, john.armor_class
+    assert_equal 12, john.passive_perception
+
+  end
 end
