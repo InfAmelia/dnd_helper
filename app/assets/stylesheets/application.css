@@ -11,3 +11,9 @@
  *= require_self
  *= require_tree .
 */
+
+
+
+.edit-button-area {
+  text-align: right;
+}
