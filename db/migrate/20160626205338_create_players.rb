@@ -8,7 +8,8 @@ class CreatePlayers < ActiveRecord::Migration
       t.integer :current_health
       t.integer :initiative
       t.integer :passive_perception
- 
+      t.integer :current_experience
+
       t.belongs_to :party, index: true
 
       t.timestamps

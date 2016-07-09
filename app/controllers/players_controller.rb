@@ -1,4 +1,6 @@
 class PlayersController < ApplicationController
+  include LevelAndXp
+
   def index
     @Players = Player.all
 
@@ -36,7 +38,9 @@ class PlayersController < ApplicationController
       :name               => params[:player][:name],
       :level              => params[:player][:level].to_i,
       :armor_class        => params[:player][:armor_class].to_i,
-      :passive_perception => params[:player][:passive_perception].to_i)
+      :passive_perception => params[:player][:passive_perception].to_i,
+      :current_experience => params[:player][:current_experience])
+      @Player.current_experience ||= level_to_experience(@Player.level)
 
     if @Player.save!
       redirect_to @Player

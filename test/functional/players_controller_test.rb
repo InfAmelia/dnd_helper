@@ -26,6 +26,35 @@ class PlayersControllerTest < ActionController::TestCase
     assert_redirected_to player_path(Player.last)
   end
 
+  test "should fill set experience explicitly upon creation" do
+    explicit_experience = 7000
+
+    post :create, player:
+    {
+      :name               => 'bob',
+      :level              => 5,
+      :armor_class        => 12,
+      :passive_perception => 10,
+      :current_experience => explicit_experience
+    }
+
+    assert_equal explicit_experience, Player.last.current_experience
+  end
+
+  test "should automatically set experience when not given" do
+    level_five_experience = 6500
+
+    post :create, player:
+    {
+      :name               => 'bob',
+      :level              => 5,
+      :armor_class        => 12,
+      :passive_perception => 10
+    }
+    
+    assert_equal level_five_experience, Player.last.current_experience
+  end
+
   test "should update player" do
     bob = Player.find(1)
 
