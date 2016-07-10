@@ -1,0 +1,15 @@
+// Place all the styles related to the players controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.player-card {
+
+
+  .edit-button-area {
+    display: inline-block;
+    position: relative;
+    a {
+      position: absolute;
+      left: 100%;
+    }
+  }
+}

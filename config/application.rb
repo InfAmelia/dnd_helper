@@ -58,5 +58,6 @@ module MyApp
 
     config.assets.paths << Rails.root.join("app", "assets", "fonts")
     config.assets.paths << Rails.root.join("app", "assets", "materialize")
+    config.autoload_paths += Dir["#{config.root}/lib/**/"]
   end
 end

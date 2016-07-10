@@ -9,6 +9,7 @@ valid_player:
   level: 3
   armor_class: 14
   passive_perception: 5
+  id: 1
 #
 two: {}
 #  column: value

@@ -1,0 +1,56 @@
+
+<div class="container">
+  <div class="row">
+    <div class="col s12">
+      <%= form_for @Player do |f| %>
+        <h2>New Player</h2>
+        <div class="row">
+          <div class="input-field col s8">
+            <br />
+            <%= f.text_field :name %>
+            <%= f.label "Player Name", for: "player_name" %>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="input-field col s8">
+            <br />
+            <%= f.text_field :level %>
+            <%= f.label "Level" %>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="input-field col s8">
+            <br />
+            <%= f.text_field :current_experience %>
+            <%= f.label "Current Experience (optional)" %>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="input-field col s8">
+            <br />
+            <%= f.text_field :armor_class %>
+            <%= f.label "Armor Class" %>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="input-field col s8">
+            <br />
+            <%= f.text_field :passive_perception %>
+            <%= f.label "Passive Perception" %>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col s3 offset-s5">
+            <%= f.submit "Create Player", class: "btn" %>
+          </div>
+        </div>
+
+      <% end %>
+    </div>
+  </div>
+</div>

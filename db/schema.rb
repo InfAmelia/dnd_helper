@@ -34,6 +34,7 @@ ActiveRecord::Schema.define(:version => 20160626205338) do
     t.integer  "current_health"
     t.integer  "initiative"
     t.integer  "passive_perception"
+    t.integer  "current_experience"
     t.integer  "party_id"
     t.datetime "created_at",         :null => false
     t.datetime "updated_at",         :null => false

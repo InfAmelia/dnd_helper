@@ -35,7 +35,13 @@
 <script type="text/javascript" src="js/materialize.min.js"></script>
 
 <body>
-
+  <% flash.each do |key, value| %>
+    <div class="container" style="text-align:center;">
+      <div class="chip alert alert-<%= key %>">
+        <%= value %>
+      </div>
+    </div>
+  <% end %>
 <%= yield %>
 
 </body>

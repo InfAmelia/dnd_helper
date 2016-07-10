@@ -8,6 +8,7 @@ MyApp::Application.routes.draw do
   resources :displays
   resources :pages
   resources :party
+  resources :players
 
   root :to => "pages#home"
 
