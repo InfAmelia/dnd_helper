@@ -36,10 +36,12 @@ class PlayersController < ApplicationController
     @Player = Player.new(params[:player])
     @Player.current_experience ||= level_to_experience(@Player.level)
 
-    if @Player.save!
+    if @Player.save
+      flash[:success] = "#{@Player.name} was created successfully"
       redirect_to @Player
     else
-      render action: 'new', notice: "Player not created successfully. Make sure all fields are filled out."
+      flash[:error] = "Player not created successfully"
+      render action: 'new'
     end
 
   end
@@ -56,8 +58,10 @@ class PlayersController < ApplicationController
   def update
     @Player = Player.find(params[:id])
     if @Player.update_attributes(params[:player])
-      redirect_to action: 'index', notice: "'Player was updated successfully.'"
+      flash[:success] = "#{@Player.name} was updated successfully"
+      redirect_to action: 'index'
     else
+      flash[:error] = "Something went wrong, #{@Player.name} not updated"
       render action: 'edit'
     end
   end
@@ -65,9 +69,11 @@ class PlayersController < ApplicationController
   def destroy
     @Player = Player.find(params[:id])
     if @Player.destroy
-      redirect_to action: 'index', notice: "#{@Player} has been deleted"
+      flash[:success] = "#{@Player.name} has been deleted"
+      redirect_to action: 'index'
     else
-      render action: 'edit', notice: "#{@Player} was not deleted"
+      flash[:error] = "Something went wrong, #{@Player.name} was not deleted"
+      render action: 'edit'
     end
   end
 
