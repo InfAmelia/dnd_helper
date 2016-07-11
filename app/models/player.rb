@@ -1,4 +1,5 @@
 class Player < ActiveRecord::Base
+  include LevelAndXp
   belongs_to :party
 
   validates :name,                presence: true
@@ -23,6 +24,12 @@ class Player < ActiveRecord::Base
 
   def change_armor_class(new_ac)
     self.armor_class = new_ac
+    self.save!
+  end
+
+  def add_xp(xp_to_add)
+    self.current_experience += xp_to_add
+    self.level_up if self.current_experience >= level_to_experience(self.level + 1)
     self.save!
   end
 end
