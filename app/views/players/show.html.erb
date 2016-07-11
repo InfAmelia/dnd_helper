@@ -1,14 +1,5 @@
-<div class="row">
-  <div class="col s4">
-    <div class="card teal lighten-2">
-
-      <div class="card-content grey-text text-darken-4">
-        <h3><%= @Player.name %></h3>
-        <h5>Level: <%= @Player.level %></h5>
-        <h5>AC: <%= @Player.armor_class %></h5>
-        <h5>Perception: <%= @Player.passive_perception %></h5>
-      </div>
-
-    </div>
+<div class="container">
+  <div class="row">
+    <%= render @Player %>
   </div>
 </div>

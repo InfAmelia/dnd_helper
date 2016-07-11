@@ -6913,3 +6913,312 @@ Redirected to http://test.host/players
 Completed 302 Found in 4ms (ActiveRecord: 0.3ms)
   [1m[35mPlayer Load (0.0ms)[0m  SELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT 1  [["id", 1]]
   [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "pages"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "pages" ("title", "text", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2016-07-11 21:00:51', '2016-07-11 21:00:51', 980190962)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "pages" ("title", "text", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2016-07-11 21:00:51', '2016-07-11 21:00:51', 298486374)
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "players"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "players" ("name", "level", "armor_class", "passive_perception", "id", "created_at", "updated_at") VALUES ('bob', 3, 14, 5, 1, '2016-07-11 21:00:51', '2016-07-11 21:00:51')
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "players" ("created_at", "updated_at", "id") VALUES ('2016-07-11 21:00:51', '2016-07-11 21:00:51', 298486374)[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "parties"
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "parties" ("created_at", "updated_at", "id") VALUES ('2016-07-11 21:00:51', '2016-07-11 21:00:51', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "parties" ("created_at", "updated_at", "id") VALUES ('2016-07-11 21:00:51', '2016-07-11 21:00:51', 298486374)
+  [1m[36m (143.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mPlayer Load (0.5ms)[0m  [1mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mPlayer Load (0.1ms)[0m  SELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mPlayer Load (0.1ms)[0m  [1mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mUPDATE "players" SET "armor_class" = 20, "updated_at" = '2016-07-11 21:00:51.420832' WHERE "players"."id" = 1[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mPlayer Load (0.1ms)[0m  [1mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mUPDATE "players" SET "initiative" = 5, "current_health" = 20, "updated_at" = '2016-07-11 21:00:51.428209' WHERE "players"."id" = 1[0m
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  UPDATE "players" SET "current_health" = 25, "updated_at" = '2016-07-11 21:00:51.429880' WHERE "players"."id" = 1
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mPlayer Load (0.1ms)[0m  SELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  UPDATE "players" SET "initiative" = 2, "current_health" = 20, "updated_at" = '2016-07-11 21:00:51.432708' WHERE "players"."id" = 1
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mUPDATE "players" SET "current_health" = 15, "updated_at" = '2016-07-11 21:00:51.434138' WHERE "players"."id" = 1[0m
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mPlayer Load (0.1ms)[0m  [1mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mUPDATE "players" SET "level" = 4, "updated_at" = '2016-07-11 21:00:51.436732' WHERE "players"."id" = 1[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mPlayer Load (0.1ms)[0m  [1mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mUPDATE "players" SET "initiative" = 5, "current_health" = 23, "updated_at" = '2016-07-11 21:00:51.440010' WHERE "players"."id" = 1[0m
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "players" ("armor_class", "created_at", "current_experience", "current_health", "initiative", "level", "name", "party_id", "passive_perception", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["armor_class", 14], ["created_at", Mon, 11 Jul 2016 21:00:51 UTC +00:00], ["current_experience", nil], ["current_health", nil], ["initiative", nil], ["level", 3], ["name", "bob"], ["party_id", nil], ["passive_perception", 3], ["updated_at", Mon, 11 Jul 2016 21:00:51 UTC +00:00]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "pages"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "pages" ("title", "text", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2016-07-11 21:00:53', '2016-07-11 21:00:53', 980190962)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "pages" ("title", "text", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2016-07-11 21:00:53', '2016-07-11 21:00:53', 298486374)
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "players"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "players" ("name", "level", "armor_class", "passive_perception", "id", "created_at", "updated_at") VALUES ('bob', 3, 14, 5, 1, '2016-07-11 21:00:53', '2016-07-11 21:00:53')
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "players" ("created_at", "updated_at", "id") VALUES ('2016-07-11 21:00:53', '2016-07-11 21:00:53', 298486374)[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "parties"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "parties" ("created_at", "updated_at", "id") VALUES ('2016-07-11 21:00:53', '2016-07-11 21:00:53', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "parties" ("created_at", "updated_at", "id") VALUES ('2016-07-11 21:00:53', '2016-07-11 21:00:53', 298486374)
+  [1m[36m (143.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+Processing by PartyController#index as HTML
+Completed 200 OK in 11ms (Views: 11.2ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+Processing by PlayersController#create as HTML
+  Parameters: {"player"=>{"name"=>"bob", "level"=>"5", "armor_class"=>"12", "passive_perception"=>"10"}}
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.3ms)[0m  INSERT INTO "players" ("armor_class", "created_at", "current_experience", "current_health", "initiative", "level", "name", "party_id", "passive_perception", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["armor_class", 12], ["created_at", Mon, 11 Jul 2016 21:00:53 UTC +00:00], ["current_experience", 6500], ["current_health", nil], ["initiative", nil], ["level", 5], ["name", "bob"], ["party_id", nil], ["passive_perception", 10], ["updated_at", Mon, 11 Jul 2016 21:00:53 UTC +00:00]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/players/298486375
+Completed 302 Found in 15ms (ActiveRecord: 1.4ms)
+  [1m[35mPlayer Load (0.1ms)[0m  SELECT "players".* FROM "players" ORDER BY "players"."id" DESC LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "players" [0m
+Processing by PlayersController#create as HTML
+  Parameters: {"player"=>{"name"=>"bob", "level"=>"5", "armor_class"=>"12", "passive_perception"=>"10"}}
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "players" ("armor_class", "created_at", "current_experience", "current_health", "initiative", "level", "name", "party_id", "passive_perception", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["armor_class", 12], ["created_at", Mon, 11 Jul 2016 21:00:53 UTC +00:00], ["current_experience", 6500], ["current_health", nil], ["initiative", nil], ["level", 5], ["name", "bob"], ["party_id", nil], ["passive_perception", 10], ["updated_at", Mon, 11 Jul 2016 21:00:53 UTC +00:00]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/players/298486375
+Completed 302 Found in 2ms (ActiveRecord: 0.4ms)
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "players" [0m
+  [1m[35mPlayer Load (0.2ms)[0m  SELECT "players".* FROM "players" ORDER BY "players"."id" DESC LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "players" [0m
+Processing by PlayersController#destroy as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mPlayer Load (0.1ms)[0m  SELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT 1  [["id", "1"]]
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  DELETE FROM "players" WHERE "players"."id" = ?  [["id", 1]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/players
+Completed 302 Found in 2ms (ActiveRecord: 0.4ms)
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "players" 
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+Processing by PlayersController#create as HTML
+  Parameters: {"player"=>{"name"=>"bob", "level"=>"5", "armor_class"=>"12", "passive_perception"=>"10", "current_experience"=>"7000"}}
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "players" ("armor_class", "created_at", "current_experience", "current_health", "initiative", "level", "name", "party_id", "passive_perception", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["armor_class", 12], ["created_at", Mon, 11 Jul 2016 21:00:53 UTC +00:00], ["current_experience", 7000], ["current_health", nil], ["initiative", nil], ["level", 5], ["name", "bob"], ["party_id", nil], ["passive_perception", 10], ["updated_at", Mon, 11 Jul 2016 21:00:53 UTC +00:00]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/players/298486375
+Completed 302 Found in 2ms (ActiveRecord: 0.4ms)
+  [1m[35mPlayer Load (0.1ms)[0m  SELECT "players".* FROM "players" ORDER BY "players"."id" DESC LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+Processing by PlayersController#index as HTML
+  [1m[36mPlayer Load (0.3ms)[0m  [1mSELECT "players".* FROM "players" [0m
+  Rendered players/_player.html.erb (3.2ms)
+Completed 500 Internal Server Error in 12ms
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+Processing by PlayersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mPlayer Load (0.1ms)[0m  SELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT 1  [["id", "1"]]
+  Rendered players/_player.html.erb (0.9ms)
+Completed 500 Internal Server Error in 3ms
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mPlayer Load (0.1ms)[0m  [1mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT 1[0m  [["id", 1]]
+Processing by PlayersController#update as HTML
+  Parameters: {"player"=>{"name"=>"john", "level"=>"4", "armor_class"=>"10", "passive_perception"=>"12"}, "id"=>"1"}
+  [1m[35mPlayer Load (0.1ms)[0m  SELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT 1  [["id", "1"]]
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  UPDATE "players" SET "name" = 'john', "level" = 4, "armor_class" = 10, "passive_perception" = 12, "updated_at" = '2016-07-11 21:00:53.438260' WHERE "players"."id" = 1
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/players
+Completed 302 Found in 4ms (ActiveRecord: 0.4ms)
+  [1m[35mPlayer Load (0.1ms)[0m  SELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "pages"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "pages" ("title", "text", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2016-07-11 21:02:41', '2016-07-11 21:02:41', 980190962)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "pages" ("title", "text", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2016-07-11 21:02:41', '2016-07-11 21:02:41', 298486374)
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "players"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "players" ("name", "level", "armor_class", "passive_perception", "id", "created_at", "updated_at") VALUES ('bob', 3, 14, 5, 1, '2016-07-11 21:02:41', '2016-07-11 21:02:41')
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "players" ("created_at", "updated_at", "id") VALUES ('2016-07-11 21:02:41', '2016-07-11 21:02:41', 298486374)[0m
+  [1m[35mFixture Delete (0.0ms)[0m  DELETE FROM "parties"
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "parties" ("created_at", "updated_at", "id") VALUES ('2016-07-11 21:02:41', '2016-07-11 21:02:41', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "parties" ("created_at", "updated_at", "id") VALUES ('2016-07-11 21:02:41', '2016-07-11 21:02:41', 298486374)
+  [1m[36m (151.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mPlayer Load (0.5ms)[0m  [1mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mUPDATE "players" SET "current_experience" = 900, "updated_at" = '2016-07-11 21:02:41.787628' WHERE "players"."id" = 1[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mPlayer Load (0.2ms)[0m  [1mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.3ms)[0m  [1mUPDATE "players" SET "current_experience" = 900, "updated_at" = '2016-07-11 21:02:41.813280' WHERE "players"."id" = 1[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  UPDATE "players" SET "current_experience" = 1200, "updated_at" = '2016-07-11 21:02:41.815925' WHERE "players"."id" = 1
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mPlayer Load (0.1ms)[0m  SELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.3ms)[0m  UPDATE "players" SET "armor_class" = 20, "updated_at" = '2016-07-11 21:02:41.819994' WHERE "players"."id" = 1
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mPlayer Load (0.1ms)[0m  SELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.3ms)[0m  UPDATE "players" SET "initiative" = 5, "current_health" = 20, "updated_at" = '2016-07-11 21:02:41.827297' WHERE "players"."id" = 1
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.3ms)[0m  [1mUPDATE "players" SET "current_health" = 25, "updated_at" = '2016-07-11 21:02:41.829686' WHERE "players"."id" = 1[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mPlayer Load (0.1ms)[0m  [1mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mUPDATE "players" SET "initiative" = 2, "current_health" = 20, "updated_at" = '2016-07-11 21:02:41.833888' WHERE "players"."id" = 1[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  UPDATE "players" SET "current_health" = 15, "updated_at" = '2016-07-11 21:02:41.835847' WHERE "players"."id" = 1
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mPlayer Load (0.1ms)[0m  SELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  UPDATE "players" SET "level" = 4, "updated_at" = '2016-07-11 21:02:41.839539' WHERE "players"."id" = 1
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mPlayer Load (0.1ms)[0m  SELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  UPDATE "players" SET "initiative" = 5, "current_health" = 23, "updated_at" = '2016-07-11 21:02:41.843425' WHERE "players"."id" = 1
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "players" ("armor_class", "created_at", "current_experience", "current_health", "initiative", "level", "name", "party_id", "passive_perception", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["armor_class", 14], ["created_at", Mon, 11 Jul 2016 21:02:41 UTC +00:00], ["current_experience", nil], ["current_health", nil], ["initiative", nil], ["level", 3], ["name", "bob"], ["party_id", nil], ["passive_perception", 3], ["updated_at", Mon, 11 Jul 2016 21:02:41 UTC +00:00]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "pages"
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO "pages" ("title", "text", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2016-07-11 21:02:43', '2016-07-11 21:02:43', 980190962)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "pages" ("title", "text", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2016-07-11 21:02:43', '2016-07-11 21:02:43', 298486374)
+  [1m[36mFixture Delete (0.0ms)[0m  [1mDELETE FROM "players"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "players" ("name", "level", "armor_class", "passive_perception", "id", "created_at", "updated_at") VALUES ('bob', 3, 14, 5, 1, '2016-07-11 21:02:43', '2016-07-11 21:02:43')
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "players" ("created_at", "updated_at", "id") VALUES ('2016-07-11 21:02:43', '2016-07-11 21:02:43', 298486374)[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "parties"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "parties" ("created_at", "updated_at", "id") VALUES ('2016-07-11 21:02:43', '2016-07-11 21:02:43', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "parties" ("created_at", "updated_at", "id") VALUES ('2016-07-11 21:02:43', '2016-07-11 21:02:43', 298486374)
+  [1m[36m (175.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+Processing by PartyController#index as HTML
+Completed 200 OK in 15ms (Views: 14.8ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+Processing by PlayersController#create as HTML
+  Parameters: {"player"=>{"name"=>"bob", "level"=>"5", "armor_class"=>"12", "passive_perception"=>"10"}}
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.3ms)[0m  INSERT INTO "players" ("armor_class", "created_at", "current_experience", "current_health", "initiative", "level", "name", "party_id", "passive_perception", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["armor_class", 12], ["created_at", Mon, 11 Jul 2016 21:02:43 UTC +00:00], ["current_experience", 6500], ["current_health", nil], ["initiative", nil], ["level", 5], ["name", "bob"], ["party_id", nil], ["passive_perception", 10], ["updated_at", Mon, 11 Jul 2016 21:02:43 UTC +00:00]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/players/298486375
+Completed 302 Found in 18ms (ActiveRecord: 1.4ms)
+  [1m[35mPlayer Load (0.2ms)[0m  SELECT "players".* FROM "players" ORDER BY "players"."id" DESC LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "players" [0m
+Processing by PlayersController#create as HTML
+  Parameters: {"player"=>{"name"=>"bob", "level"=>"5", "armor_class"=>"12", "passive_perception"=>"10"}}
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "players" ("armor_class", "created_at", "current_experience", "current_health", "initiative", "level", "name", "party_id", "passive_perception", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["armor_class", 12], ["created_at", Mon, 11 Jul 2016 21:02:43 UTC +00:00], ["current_experience", 6500], ["current_health", nil], ["initiative", nil], ["level", 5], ["name", "bob"], ["party_id", nil], ["passive_perception", 10], ["updated_at", Mon, 11 Jul 2016 21:02:43 UTC +00:00]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/players/298486375
+Completed 302 Found in 3ms (ActiveRecord: 0.5ms)
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "players" [0m
+  [1m[35mPlayer Load (0.1ms)[0m  SELECT "players".* FROM "players" ORDER BY "players"."id" DESC LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "players" [0m
+Processing by PlayersController#destroy as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mPlayer Load (0.2ms)[0m  SELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT 1  [["id", "1"]]
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  DELETE FROM "players" WHERE "players"."id" = ?  [["id", 1]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/players
+Completed 302 Found in 2ms (ActiveRecord: 0.5ms)
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "players" 
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+Processing by PlayersController#create as HTML
+  Parameters: {"player"=>{"name"=>"bob", "level"=>"5", "armor_class"=>"12", "passive_perception"=>"10", "current_experience"=>"7000"}}
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "players" ("armor_class", "created_at", "current_experience", "current_health", "initiative", "level", "name", "party_id", "passive_perception", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["armor_class", 12], ["created_at", Mon, 11 Jul 2016 21:02:43 UTC +00:00], ["current_experience", 7000], ["current_health", nil], ["initiative", nil], ["level", 5], ["name", "bob"], ["party_id", nil], ["passive_perception", 10], ["updated_at", Mon, 11 Jul 2016 21:02:43 UTC +00:00]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/players/298486375
+Completed 302 Found in 2ms (ActiveRecord: 0.4ms)
+  [1m[35mPlayer Load (0.1ms)[0m  SELECT "players".* FROM "players" ORDER BY "players"."id" DESC LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+Processing by PlayersController#index as HTML
+  [1m[36mPlayer Load (0.2ms)[0m  [1mSELECT "players".* FROM "players" [0m
+  Rendered players/_player.html.erb (2.3ms)
+Completed 500 Internal Server Error in 9ms
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+Processing by PlayersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mPlayer Load (0.1ms)[0m  SELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT 1  [["id", "1"]]
+  Rendered players/_player.html.erb (1.0ms)
+Completed 500 Internal Server Error in 3ms
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mPlayer Load (0.1ms)[0m  [1mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT 1[0m  [["id", 1]]
+Processing by PlayersController#update as HTML
+  Parameters: {"player"=>{"name"=>"john", "level"=>"4", "armor_class"=>"10", "passive_perception"=>"12"}, "id"=>"1"}
+  [1m[35mPlayer Load (0.0ms)[0m  SELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT 1  [["id", "1"]]
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  UPDATE "players" SET "name" = 'john', "level" = 4, "armor_class" = 10, "passive_perception" = 12, "updated_at" = '2016-07-11 21:02:43.974736' WHERE "players"."id" = 1
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/players
+Completed 302 Found in 3ms (ActiveRecord: 0.3ms)
+  [1m[35mPlayer Load (0.1ms)[0m  SELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
