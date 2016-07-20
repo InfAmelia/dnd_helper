@@ -5,4 +5,8 @@
       <%= render player %>
     <% end %>
   </div>
+
+  <div class="row">
+    <%= button_to "End Session", @game_master, method: :delete, class: "btn"  %>
+  </div>
 </div>
