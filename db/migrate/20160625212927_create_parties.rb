@@ -4,6 +4,7 @@ class CreateParties < ActiveRecord::Migration
 
       t.integer :current_xp
       t.integer :current_level
+      t.belongs_to :game_master
 
       t.timestamps
     end
