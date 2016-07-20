@@ -1,3 +1,3 @@
 class GameMaster < ActiveRecord::Base
-  has_a :party
+  has_one :party
 end
