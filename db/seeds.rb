@@ -8,5 +8,5 @@
 party = Party.create([{current_xp: 2000, current_level: 3}])
 
 players = 10.times do
-  Player.create([{name: "bob", level: 3, armor_class: 15, passive_perception: 12}])
+  Player.create([{name: "bob", level: 3, armor_class: 15, passive_perception: 12, current_experience: 2000}])
 end
