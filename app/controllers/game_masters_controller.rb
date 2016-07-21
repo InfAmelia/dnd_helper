@@ -8,7 +8,7 @@ class GameMastersController < ApplicationController
     @game_master = GameMaster.new
     @players = Player.all
   end
-
+ 
   def create
     @game_master = GameMaster.new(params[:game_master])
     @party = Party.new

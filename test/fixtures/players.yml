@@ -11,6 +11,4 @@ valid_player:
   passive_perception: 5
   current_experience: 2000
   id: 1
-#
-two: {}
-#  column: value
+  party: valid_party

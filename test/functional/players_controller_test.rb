@@ -19,7 +19,8 @@ class PlayersControllerTest < ActionController::TestCase
         :name               => 'bob',
         :level              => 5,
         :armor_class        => 12,
-        :passive_perception => 10
+        :passive_perception => 10,
+        :current_experience => 20000
       }
     end
 
