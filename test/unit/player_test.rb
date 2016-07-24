@@ -45,7 +45,7 @@ class PlayerTest < ActiveSupport::TestCase
 
     expected_level = player.level + 1
     player.level_up
-    
+
     assert_equal expected_level, player.level
   end
 
@@ -55,4 +55,49 @@ class PlayerTest < ActiveSupport::TestCase
     player.change_armor_class(new_ac)
     assert_equal player.armor_class, new_ac
   end
+
+  test "add xp without level up should add xp and keep level the same" do
+    player = players(:valid_player)
+
+    # make sure the current experience is set up for the default level 3 experience
+    # and that the player starts out at level 3
+    level_three_experience = 900
+    level_three = 3
+    player.current_experience = level_three_experience
+    player.save!
+
+    assert_equal level_three_experience, player.current_experience
+    assert_equal level_three, player.level
+
+    # now use the add_xp method and see if the increase in xp happens without a level up
+    experience_to_add = 300
+    player.add_xp(experience_to_add)
+
+    assert_equal level_three_experience + experience_to_add, player.current_experience
+    assert_equal level_three, player.level
+  end
+
+  test "add xp with enough to level up should add the players experience and raise their level" do
+    player = players(:valid_player)
+
+    # make sure the current experience is set up for the default level 3 experience
+    # and that the player starts out at level 3
+    level_three_experience = 900
+    player.current_experience = level_three_experience
+    level_three = 3
+    player.save!
+
+    assert_equal level_three_experience, player.current_experience
+    assert_equal level_three, player.level
+
+    # now use the add_xp method and see if it causes the player to incease in xp and level
+    experience_to_level = level_to_experience(4) - level_to_experience(3)
+    level_four_experience = 2700
+    level_four = 4
+    player.add_xp(experience_to_level)
+
+    assert_equal level_four_experience, player.current_experience
+    assert_equal level_four, player.level
+  end
+  
 end

@@ -1,19 +1,25 @@
+<div class="col s4">
+  <div class="card teal lighten-5 player-card">
 
-  <div class="col s4">
-    <div class="card cyan accent-4 player-card">
-
-      <div class="card-content grey-text text-darken-4">
-        <h3><%= player.name %></h3>
-        <h5>Level: <%= player.level %></h5>
-        <h5>AC: <%= player.armor_class %></h5>
-        <h5>Perception: <%= player.passive_perception %></h5>
-      </div>
-
-      <div class="edit-button-area">
-        <a class="btn-floating btn-large waves-effect waves-light red" href="<%= edit_player_url(player.id) %>">
-          <i class="material-icons">mode_edit</i>
-        </a>
-      </div>
-
+    <div class="card-content grey-text text-darken-4">
+      <h3><%= player.name %></h3>
+      <h5>Level: <%= player.level %></h5>
+      <h5>AC: <%= player.armor_class %></h5>
+      <h5>Perception: <%= player.passive_perception %></h5>
     </div>
+
+    <div class="container player-xp">
+      <h1 class="<%= calculate_css(player) -%>"><%= player.current_experience.to_i %></h1>
+      <hr />
+      <h1><%= max_xp(player.level).to_i  %></h1>
+    </div>
+
+    <div class="edit-button-area">
+      <a class="btn-floating btn-large waves-effect waves-light red" href="<%= edit_player_url(player.id) %>">
+        <i class="material-icons">mode_edit</i>
+      </a>
+    </div>
+
   </div>
+</div>
+ 

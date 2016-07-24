@@ -27,6 +27,17 @@
     <ul class="right hide-on-med-and-down">
       <li class="<%= is_active?('/map') %>"><a href="/map" class="waves-effect waves-light btn">MAP</a></li>
       <li class="<%= is_active?('/xp') %>"><a href="/xp" class="waves-effect waves-light btn">XP-Tracker</a></li>
+
+      <% if active_gm? %>
+        <li class="<%= is_active?(game_master_path(current_gm))%>">
+          <a href="<%= game_master_path(current_gm) %>" class="waves-effect waves-light btn">DM Dash</a>
+        </li>
+      <% else %>
+        <li class="<%= is_active?(new_game_master_path)%>">
+          <a href="<%= new_game_master_path %>" class="waves-effect waves-light btn">New DM</a>
+        </li>
+      <% end %>
+
     </ul>
   </div>
 </nav>

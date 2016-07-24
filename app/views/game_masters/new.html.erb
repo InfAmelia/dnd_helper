@@ -1,0 +1,38 @@
+
+<div class="container">
+  <div class="row">
+    <div class="col s12">
+      <%= form_for @game_master do |f| %>
+        <h2>New DM</h2>
+        <div class="row">
+          <div class="input-field col s8">
+            <br />
+            <%= f.text_field :name %>
+            <%= f.label "DM Name", for: "game_master_name" %>
+          </div>
+        </div>
+
+        <div class="row">
+          <% @players.each do |player| %>
+            <div class="input-field col s3 offset-s1 grey lighten-3">
+              <h3><%= player.name %></h3>
+              <h4>Level: <%= player.level %></h4>
+              <p>
+                <input type="checkbox" id="player_<%= player.id %>" name="[party][<%=player.id%>]" />
+                <label for="player_<%= player.id %>">Count me in</label>
+              </p>
+              <br />
+            </div>
+          <% end %>
+        </div>
+
+        <div class="row">
+          <div class="col s3 offset-s5">
+            <%= f.submit "Start Game", class: "btn" %>
+          </div>
+        </div>
+
+      <% end %>
+    </div>
+  </div>
+</div>

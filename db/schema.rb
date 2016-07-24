@@ -11,7 +11,13 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20160626205338) do
+ActiveRecord::Schema.define(:version => 20160720055010) do
+
+  create_table "game_masters", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "pages", :force => true do |t|
     t.string   "title"
@@ -23,8 +29,9 @@ ActiveRecord::Schema.define(:version => 20160626205338) do
   create_table "parties", :force => true do |t|
     t.integer  "current_xp"
     t.integer  "current_level"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
+    t.integer  "game_master_id"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
   end
 
   create_table "players", :force => true do |t|
