@@ -5,8 +5,9 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-party = Party.create([{current_xp: 2000, current_level: 3}])
+Party.create([{current_xp: 14000, current_level: 6}])
 
-players = 10.times do
-  Player.create([{name: "bob", level: 3, armor_class: 15, passive_perception: 12, current_experience: 2000}])
-end
+Player.create({name: "Aku", level: 7, armor_class: 19, passive_perception: 12, current_experience: 22000})
+Player.create({name: "Xytrana", level: 6, armor_class: 14, passive_perception: 12, current_experience: 14000})
+Player.create({name: "Mikaela", level: 6, armor_class: 13, passive_perception: 12, current_experience: 14000})
+Player.create({name: "Kai", level: 6, armor_class: 15, passive_perception: 12, current_experience: 14000})
